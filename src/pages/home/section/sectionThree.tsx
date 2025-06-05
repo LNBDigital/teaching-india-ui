@@ -39,7 +39,7 @@ export default function SectionThree() {
     <div className="p-uno py-[10rem] flex flex-wrap items-start gap-16">
 
       {/* Left Side Content */}
-      <div className="flex-1 min-w-[300px] sticky top-20 self-start">
+      <div className="flex-1 min-w-[300px] sticky top-30 self-start">
         <div className="grid gap-10">
           <CustomHead className="uppercase text-black leading-16 tracking-wide text-[64px]">
             <span className="text-blue">
