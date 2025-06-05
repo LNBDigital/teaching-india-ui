@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { CustomBlueImgBtn } from "../../../components/buttons/button";
 import { CustomHead } from "../../../components/global";
 import { RulesBox } from "../../../components/layout/home/components";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
 
 // Animation config
 const CardVariants = ({

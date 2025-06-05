@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import React, { useRef } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 
 type AnimationProps = {
   finalX?: number | number[];
@@ -32,10 +32,9 @@ export const FooterAnim = ({
 };
 
 export default function Footer() {
-    const sec = useRef(null)
-    const useView = useInView(sec);
+
   return (
-    <footer ref={sec} className="bg-black1 w-full">
+    <footer className="bg-black1 w-full">
       <div className="container mx-auto flex flex-col items-center gap-8 p-10">
         <div className="flex justify-center gap-10 w-full max-w-[1340px]">
           <FooterAnim initX={-60}>
