@@ -1,8 +1,7 @@
-import { useRef } from "react";
 import { CustomBlueImgBtn } from "../../../components/buttons/button";
 import { CustomHead } from "../../../components/global";
 import { RulesBox } from "../../../components/layout/home/components";
-import { useScroll, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 // Animation config
 const CardVariants = ({
@@ -54,15 +53,10 @@ export default function SectionThree() {
       {/* Right Side Rules Boxes */}
       <div className="flex-1 min-w-[300px] space-y-12">
         {ruleData.map((item, i) => {
-          const ref = useRef(null);
-          const { scrollYProgress } = useScroll({
-            target: ref,
-          });
 
           return (
             <motion.div
               key={i}
-              ref={ref}
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: false, amount: 0.9 }}
