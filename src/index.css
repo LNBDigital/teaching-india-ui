@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "swiper/css/navigation";
+@import "swiper/css";
+
+@theme{
+  --color-blue:#7790ED;
+  --color-blue2:#DAE0F0;
+  --color-lightBlue: #B4C7F2;
+  --color-lightBlue2:#D1D5DB;
+  --color-lightBlue3:#B3C5F1;
+  --color-peach:#F5EDE1;
+  --color-peach2:#F6EDE2;
+   /* black shades */
+   --color-black1:#292521;
+   --color-black2:#1F2937;
+   --color-black3:#374151;
+   --color-black4:#4B5563;
+   --color-black5:#6B7280;
+   /* padding */
+   --padding-uno:0px 2rem;
+   --font-primary:"Etna", sans-serif;
+   /* shadow */
+   --shadow-shadow1: 4px 4px 0px 0px var(--color-blue);
+   --shadow-shadow2: 0px 21.6px 0px 0px #000000;
+}
+@font-face {
+  font-family: "Light";
+  src: local("Etna"),url("./assets/fonts/etna-free-font.otf"),format("otf");
+}
+@font-face{
+  font-family: "Gellatio";
+  src: local("Gellatio"),url("./assets/fonts/GellatioPersonalUse.ttf"),format(("ttf"));
+}
+html{
+margin: 0;
+padding: 0;
+}
+body{
+  font-family: "Light";
+  font-weight: 200;
+  margin: 0;
+padding: 0;
+background-color: var(--color-peach);
+}
+.container{
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+}
+.swiper-button-prev, .swiper-button-next{
+  color: white !important;
+  width: 50px !important;
+  height: 50px !important;
+  background-color: var(--color-blue);
+  text-align: center;
+  top: 85% !important;
+  border-radius: 100%;
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+  font-size: 22px !important;
+}
+.swiper-button-prev{
+  left: 10% !important
+}
+ .swiper-button-next{
+    right: 10% !important
+ }
+ .gellatio{
+  font-family: "Gellatio";
+ }
