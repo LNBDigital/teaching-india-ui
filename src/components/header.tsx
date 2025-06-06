@@ -14,20 +14,17 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 0)
     }
 
     window.addEventListener("scroll", handleScroll)
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
   }, [])
 
   return (
     <div
       className={`bg-black px-14 transition-all duration-300 mt-5 mx-5 rounded-t-xl sticky top-0 z-30 ${
-        isScrolled ? "py-4" : "py-10"
+        isScrolled ? "py-4" : "py-6"
       }`}
     >
       <div className="container mx-auto">
