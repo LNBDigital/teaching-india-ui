@@ -4,7 +4,7 @@ import { CustomBlueImgBtn } from "../../../components/buttons/button";
 import { CustomHead } from "../../../components/global";
 
 export default function Hero() {
-  const letter = "elevia";
+  // const letter = "elevia";
   const textRef = useRef(null);
   const isInView = useInView(textRef, { once: true, margin: "-20% 0px" });
   const controls = useAnimation();
@@ -15,36 +15,36 @@ export default function Hero() {
     }
   }, [isInView, controls]);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
+  // // Animation variants
+  // const containerVariants = {
+  //   hidden: {},
+  //   visible: {
+  //     transition: {
+  //       staggerChildren: 0.2,
+  //     },
+  //   },
+  // };
 
-  const letterVariants = {
-    hidden: { opacity: 0, x: -18 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-        type: "tween",
-      },
-    },
-  };
+  // const letterVariants = {
+  //   hidden: { opacity: 0, x: -18 },
+  //   visible: {
+  //     opacity: 1,
+  //     x: 0,
+  //     transition: {
+  //       duration: 0.8,
+  //       ease: "easeInOut",
+  //       type: "tween",
+  //     },
+  //   },
+  // };
 
   return (
     <div className="bg-black mx-5 p-uno" ref={textRef}>
       <div className="container mx-auto">
         <div className="flex justify-between">
           {/* Left Content */}
-          <div className="flex flex-col gap-10 items-center justify-center">
-            <motion.div
+          <div className="flex flex-col gap-10 items-center max-w-[50%] justify-center">
+            {/* <motion.div
               className="flex tracking-normal"
               variants={containerVariants}
               initial="hidden"
@@ -59,7 +59,8 @@ export default function Hero() {
                   {char}
                 </motion.p>
               ))}
-            </motion.div>
+            </motion.div> */}
+            <img src="/home/elevia.gif"  />
 
             <CustomHead>Elevate Learning. Empower Minds.</CustomHead>
             <CustomBlueImgBtn>Start Learning</CustomBlueImgBtn>
