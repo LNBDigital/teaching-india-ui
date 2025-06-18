@@ -11,7 +11,7 @@ export default function SectionFour() {
   ];
 
   return (
-    <div className="bg-blue p-10 overflow-hidden">
+    <div className="bg-blue p-15 overflow-hidden">
       <div className="container mx-auto">
         <div className="bg-peach border border-black rounded-xl py-5 relative overflow-hidden">
           {/* Headings */}
@@ -23,7 +23,7 @@ export default function SectionFour() {
           </div>
           <div className="sideImage">
             <img
-              className="absolute top-30 z-20"
+              className="absolute top-17 z-20"
               src="/home/potential/Book.svg"
             />
             <img

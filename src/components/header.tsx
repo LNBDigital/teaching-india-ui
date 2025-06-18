@@ -1,35 +1,42 @@
-import React, { useEffect, useState } from "react"
-import { CustomBlueBtn } from "./buttons/button"
+import React, { useEffect, useState } from "react";
+import { CustomBlueBtn } from "./buttons/button";
 
 type customLi = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export const CustomLinks = ({ children }: customLi) => {
-  return <li className="text-white">{children}</li>
-}
+  return <li className="text-white">{children}</li>;
+};
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-  }, [])
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
-      className={`bg-black px-14 transition-all duration-300 mt-5 mx-5 rounded-t-xl sticky top-0 z-30 ${
-        isScrolled ? "py-4" : "py-6"
+      className={`transition-all duration-900 mt-5 sticky mx-5 rounded-t-xl z-30 ${
+        isScrolled ? "top-2 px-0 bg-transparent after:* after:w-full after:h-20 after:absolute after:backdrop-blur-xl after:rounded-2xl after:-top-2 after:-z-10" : "top-0 px-14 bg-black"
       }`}
     >
-      <div className="container mx-auto">
+      <div
+        className={`container backdrop-blur-3xl mx-auto sticky top-0 ${
+          isScrolled
+            ? "py-4 px-7 top-5 rounded-xl bg-black backdrop-blur-3xl"
+            : "py-6 top-0"
+        }`}
+      >
         <div className="flex items-center justify-between">
-          <img src="/home/logo.svg" />
+          <img
+            src="/home/logo.svg"
+            className={`${isScrolled ? "w-20" : "w-fit"}`}
+          />
           <ul className="flex gap-8">
             <CustomLinks>Home</CustomLinks>
             <CustomLinks>Courses</CustomLinks>
@@ -40,7 +47,7 @@ function Header() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
