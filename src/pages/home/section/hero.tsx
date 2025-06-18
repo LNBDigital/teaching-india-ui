@@ -67,15 +67,21 @@ export default function Hero() {
 
           {/* Right Animations */}
           <div className="relative max-w-[475px]">
-            <img className="float-right relative" src="/home/animation/bg.svg" />
-            
+            <img
+              className="float-right relative"
+              src="/home/animation/bg.svg"
+            />
+
             <motion.img
               className="absolute right-50 top-10 will-change-transform"
               src="/home/animation/bulb-light.svg"
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-              <img src="/home/animation/bulb.svg" className="absolute right-50 top-10 will-change-transform" />
+            <img
+              src="/home/animation/bulb.svg"
+              className="absolute right-50 top-10 will-change-transform"
+            />
             <motion.img
               src="/home/animation/girl.svg"
               className="absolute left-[10%] top-20 will-change-transform"
@@ -102,7 +108,11 @@ export default function Hero() {
               className="absolute right-26 top-30 will-change-transform"
               src="/home/animation/notebook.svg"
               animate={{ scale: [0.6, 0.8, 0.6] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
             <motion.img
               className="absolute left-[7%] bottom-60 will-change-transform"
@@ -147,18 +157,25 @@ export default function Hero() {
               animate={{ rotate: 360 }}
               transition={{ duration: 4, ease: "linear", repeat: Infinity }}
             />
-            <img 
+            <motion.div
+              className="absolute right-13 bottom-16 p-4 will-change-transform"
+        animate={{ filter: ["invert(40%)", "invert(70%)", "invert(0%)"] }}
+              transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+            >
+              <img src="/home/animation/arrow2.svg" />
+            </motion.div>
+
+            <img
               className="absolute right-[35%] bottom-20 will-change-transform"
               src="/home/animation/boy.svg"
             />
-            <motion.img 
-            src="/home/animation/boy-eyes.svg"
-                     className="absolute left-[32%] bottom-[30%] will-change-transform"
-                     initial={{ y: 76, x: 64 }}
-              animate={{ x: [58,60, 62, 64, 62, 60,58] }}
-                       transition={{ duration: 1, repeat: Infinity }}
+            <motion.img
+              src="/home/animation/boy-eyes.svg"
+              className="absolute left-[32%] bottom-[30%] will-change-transform"
+              initial={{ y: 76, x: 64 }}
+              animate={{ x: [58, 60, 62, 64, 62, 60, 58] }}
+              transition={{ duration: 1, repeat: Infinity }}
             />
-
           </div>
         </div>
       </div>

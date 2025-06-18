@@ -94,21 +94,21 @@ const sectionRef = useRef(null);
           delay={1.2}
           imgSrc="/home/animation/icon4.svg"
           y={["-100px", "310px", "300px", "320px"]}
-          x={["180px"]}
+          x={["160px"]}
         />
         <Animation
         controls={controls}
           delay={1.4}
           imgSrc="/home/animation/icon5.svg"
           y={["-120px", "190px", "180px", "200px"]}
-          x={["120px"]}
+          x={["100px"]}
         />
         <Animation
         controls={controls}
           delay={1.6}
           imgSrc="/home/animation/icon6.svg"
           y={["-175px", "190px", "170px", "190px"]}
-          x={["240px"]}
+          x={["220px"]}
         />
       </div>
     </div>
