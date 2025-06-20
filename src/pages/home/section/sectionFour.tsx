@@ -90,7 +90,7 @@ export default function SectionFour() {
               </div>
             </div>
             <div className="absolute bottom-0 my-10">
-              <img src="/gif/home/steps2.gif" />
+              <img src="/gif/home/steps.gif" />
             </div>
           </div>
         </div>
