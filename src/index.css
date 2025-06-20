@@ -24,7 +24,7 @@
    --shadow-shadow2: 0px 21.6px 0px 0px #000000;
 }
 @font-face {
-  font-family: "Light";
+  font-family: "Etna";
   src: local("Etna"),url("./assets/fonts/etna-free-font.otf"),format("otf");
 }
 @font-face{
@@ -36,7 +36,7 @@ margin: 0;
 padding: 0;
 }
 body{
-  font-family: "Light";
+  font-family: "Etna";
   font-weight: 200;
   margin: 0;
 padding: 0;
