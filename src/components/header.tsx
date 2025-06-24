@@ -41,7 +41,7 @@ function Header() {
         <div className="flex items-center justify-between">
           <img
             src="/home/logo.svg"
-            className={`${isScrolled ? "max-w-[100px]" : "w-fit"}`}
+            className={`${isScrolled ? "max-w-[100px]" : "w-fit p-2"}`}
           />
           <ul className="flex gap-8">
             <CustomLinks>Home</CustomLinks>
