@@ -1,6 +1,12 @@
 import { useEffect, useRef } from "react";
 import { CustomHead, CustomPara } from "../../../components/global";
-import { motion, useAnimation, useInView } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useReducedMotion,
+} from "framer-motion";
+import { animationOff } from "../../../lib/global/animationOff";
 
 type animation = {
   y: string[];
@@ -8,26 +14,34 @@ type animation = {
   delay?: number;
   imgSrc: string;
   className?: string;
-  controls?:any
+  controls?: any;
 };
 
-export const Animation = ({ y, x, delay, imgSrc, className, controls }: animation) => {
+export const Animation = ({
+  y,
+  x,
+  delay,
+  imgSrc,
+  className,
+  controls,
+}: animation) => {
+
   const transition = {
     duration: 1.5,
     ease: "easeIn",
     delay: delay,
   };
   const variant = {
-   hidden:{
-    opacity:1,
-    y:y[0],
-    x:x ? x[0] : 0
-   },
-   visible:{
-    opacity:1,
-    y:y,
-    x:x || 0
-   }
+    hidden: {
+      opacity: 1,
+      y: y[0],
+      x: x ? x[0] : 0,
+    },
+    visible: {
+      opacity: 1,
+      y: y,
+      x: x || 0,
+    },
   };
 
   return (
@@ -37,29 +51,30 @@ export const Animation = ({ y, x, delay, imgSrc, className, controls }: animatio
         variants={variant}
         animate={controls}
         transition={transition}
-        className={`absolute ${className}`}
+        className={`absolute animated-element ${className}`}
       >
-        <img src={imgSrc} />
+        <img className="w-[100px] lg:w-full" src={imgSrc} />
       </motion.div>
     </>
   );
 };
 
 export default function AboutUs() {
-const sectionRef = useRef(null);
+  const sectionRef = useRef(null);
+  const disableMotion = animationOff();
   const isInView = useInView(sectionRef, { once: true, amount: 0.8 });
-    const controls = useAnimation();
-    useEffect(()=>{
-        if (isInView) {
-            controls.start("visible");
-        }
-    },[isInView,controls])
+  const controls = useAnimation();
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
   return (
     <div
       ref={sectionRef}
-      className="bg-black mx-5 mb-5 rounded-b-xl p-uno py-15 px-15 flex justify-center gap-10"
+      className="bg-black mx-5 mb-5 gap-6 lg:gap-0 rounded-b-xl p-4 lg:py-15 lg:px-15 flex flex-col lg:flex-row justify-between "
     >
-      <div className="flex flex-col gap-10 justify-center">
+      <div className="flex flex-col gap-4 lg:gap-10 justify-center">
         <CustomHead>ABOUT US</CustomHead>
         <CustomPara className="max-w-2xl text-peach">
           At Elevia, we simplify learning for students from classes 9 to 12.
@@ -68,43 +83,57 @@ const sectionRef = useRef(null);
           simple: study smarter, not harder.
         </CustomPara>
       </div>
-      <div className="bg-[url(/home/about-bg.svg)] overflow-hidden bg-no-repeat w-[630px] h-[630px] relative bg-contain bg-right">
+      <div
+        className="
+    relative
+    w-full
+    max-w-[300px]
+    lg:max-w-[630px]
+    aspect-[1/1]
+    lg:aspect-[1/1]
+    overflow-hidden
+    bg-no-repeat
+    bg-cover
+    bg-right
+    bg-[url(/home/about-bg.svg)]
+  "
+      >
         <Animation
-        controls={controls}
+          controls={controls}
           delay={0}
           imgSrc="/home/animation/icon1.svg"
-          y={["-150px", "460px", "440px", "460px"]}
+          y={disableMotion ? [] : ["-150px", "460px", "440px", "460px"]}
         />
         <Animation
-        controls={controls}
+          controls={controls}
           delay={0.6}
           imgSrc="/home/animation/icon2.svg"
           y={["-100px", "520px", "500px", "520px"]}
           x={["153px"]}
         />
         <Animation
-        controls={controls}
+          controls={controls}
           delay={0.9}
           imgSrc="/home/animation/icon3.svg"
           y={["-100px", "410px", "400px", "420px"]}
           x={["130px"]}
         />
         <Animation
-        controls={controls}
+          controls={controls}
           delay={1.2}
           imgSrc="/home/animation/icon4.svg"
           y={["-100px", "310px", "300px", "320px"]}
           x={["160px"]}
         />
         <Animation
-        controls={controls}
+          controls={controls}
           delay={1.4}
           imgSrc="/home/animation/icon5.svg"
           y={["-120px", "190px", "180px", "200px"]}
           x={["100px"]}
         />
         <Animation
-        controls={controls}
+          controls={controls}
           delay={1.6}
           imgSrc="/home/animation/icon6.svg"
           y={["-175px", "190px", "170px", "190px"]}
