@@ -4,7 +4,6 @@ import {
   motion,
   useAnimation,
   useInView,
-  useReducedMotion,
 } from "framer-motion";
 import { animationOff } from "../../../lib/global/animationOff";
 
