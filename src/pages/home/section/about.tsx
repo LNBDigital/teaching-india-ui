@@ -52,7 +52,7 @@ export const Animation = ({
         transition={transition}
         className={`absolute animated-element ${className}`}
       >
-        <img className="w-[100px] lg:w-full" src={imgSrc} />
+        <img className="w-[100px] lg:w-fit" src={imgSrc} />
       </motion.div>
     </>
   );
@@ -60,9 +60,9 @@ export const Animation = ({
 
 export default function AboutUs() {
   const sectionRef = useRef(null);
-  const disableMotion = animationOff();
   const isInView = useInView(sectionRef, { once: true, amount: 0.8 });
   const controls = useAnimation();
+  const animateRemove = animationOff();
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
@@ -82,7 +82,8 @@ export default function AboutUs() {
           simple: study smarter, not harder.
         </CustomPara>
       </div>
-      <div
+    {
+      !animateRemove ?   <div
         className="
     relative
     w-full
@@ -101,7 +102,7 @@ export default function AboutUs() {
           controls={controls}
           delay={0}
           imgSrc="/home/animation/icon1.svg"
-          y={disableMotion ? [] : ["-150px", "460px", "440px", "460px"]}
+          y={["-150px", "460px", "440px", "460px"]}
         />
         <Animation
           controls={controls}
@@ -138,7 +139,12 @@ export default function AboutUs() {
           y={["-175px", "190px", "170px", "190px"]}
           x={["220px"]}
         />
-      </div>
+      </div> 
+      : 
+      <div>
+        <img src="/gif/home/about.svg" />
+        </div>
+    }
     </div>
   );
 }

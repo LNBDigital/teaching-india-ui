@@ -11,12 +11,12 @@ export const RulesBox = ({spanContent=1,headingContent="Teaching that ignites cu
     const isMac = useMacCheck();
     return(
         <div className="flex flex-col max-w-[640px] bg-white p-[25px] rounded-xl">
-            <div className="flex items-center gap-6">
-                <span className={`w-[60px] h-[60px] text-[24px] flex items-center justify-center bg-blue text-white rounded-full tracking-[2px] ${isMac ? "pt-1": "pb-2 "}`}>0{spanContent}</span>
-                <h4 className="text-[36px] leading-[48px] max-w-[28rem]">{headingContent}</h4>
+            <div className="flex items-center gap-2 lg:gap-6">
+                <span className={`w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] text-md lg:text-[24px] flex items-center justify-center bg-blue text-white rounded-full tracking-[2px] ${isMac ? "pt-1": "pb-2 "}`}>0{spanContent}</span>
+                <h4 className="text-xl lg:text-[36px] lg:leading-[48px] max-w-[28rem]">{headingContent}</h4>
             </div>
             <div>
-                <p className="text-[24px] leading-[48px] py-5">{subHeading}</p>
+                <p className="text-md lg:text-[24px] lg:leading-[48px] py-5">{subHeading}</p>
             </div>
         </div>
     )
