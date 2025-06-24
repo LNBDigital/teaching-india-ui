@@ -35,20 +35,20 @@ export default function Footer() {
 
   return (
     <footer className="bg-black1 w-full">
-      <div className="container mx-auto flex flex-col items-center gap-8 p-10">
-        <div className="flex flex-col lg:flex-row justify-center gap-10 w-full">
+      <div className="container mx-auto flex flex-col items-center gap-4 lg:gap-8 p-4 lg:p-10">
+        <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-10 w-full">
           <FooterAnim initX={-60} className="max-w-[575px] w-full">
-            <div className="bg-peach p-10 rounded-[30px]">
+            <div className="bg-peach p-4 lg:p-10 rounded-[30px] flex justify-center">
               <img
                 src="/home/logo.svg"
                 alt="Logo"
-                className="brightness-0 w-full lg:w-[440px] h-full"
+                className="brightness-0 w-fit lg:w-[440px] h-full"
               />
             </div>
           </FooterAnim>
 
           <FooterAnim initX={60} className="w-full h-full">
-            <div className="bg-lightBlue3 w-full min-w-[280px] max-w-full max-h-[280px] h-full py-[52px] xs:p-12 rounded-[30px] flex flex-col items-center justify-center">
+            <div className="bg-lightBlue3 w-full min-w-[280px] max-w-full max-h-[280px] h-full py-2 lg:py-[52px] xs:p-12 rounded-[30px] flex flex-col items-center justify-center">
  <a className="text-lg xs:text-[24px] my-2 cursor-pointer">Link</a>
               <ul className="flex flex-col gap-2">
                 <li className="text-[16px]">Class 9</li>
@@ -66,7 +66,7 @@ export default function Footer() {
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 1, delay: 0.20 }}
 >
-  <p className="text-right px-10 py-7 text-[32px] w-full">
+  <p className="text-center lg:text-right px-10 py-2 lg:py-7 text-xl lg:text-[32px] w-full">
     Copyright © 2025, Elevia
   </p>
 </motion.div>

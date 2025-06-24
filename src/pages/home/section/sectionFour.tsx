@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { CustomBlueImgBtn } from "../../../components/buttons/button";
 import { PotentialBox } from "../../../components/layout/home/components";
+import { animationOff } from "../../../lib/global/animationOff";
 
 export default function SectionFour() {
+  const removeAnimate = animationOff();
   const boxData = [
     { class: 9, subHead: "Foundation for higher studies" },
     { class: 10, subHead: "Comprehensive coverage" },
@@ -11,41 +13,41 @@ export default function SectionFour() {
   ];
 
   return (
-    <div className="bg-blue p-5 overflow-hidden">
+    <div className="bg-blue p-5 pt-20 lg:mt-0 overflow-hidden">
       <div className="container mx-auto">
         <div className="bg-peach rounded-xl py-5 relative overflow-hidden">
           {/* Headings */}
           <div className="text-center">
-            <h4 className="text-[64px]">Unlock your potential</h4>
-            <p className="text-[36px] text-black">
+            <h4 className="text-3xl lg:text-[64px]">Unlock your potential</h4>
+            <p className="text-md lg:text-[36px] text-black">
               Start your journey by selecting <br /> your class
             </p>
           </div>
-          <div className="sideImage">
+      {!removeAnimate &&     <div className="sideImage ">
             <img
-              className="absolute top-17 z-20"
+              className="absolute top-4 lg:top-17 z-20 w-[70px] lg:w-fit"
               src="/home/potential/Book.svg"
             />
             <img
-              className="absolute top-24 left-70 z-20"
+              className="absolute top-36 lg:top-24 left-60 lg:left-70 z-20"
               src="/home/potential/Star2.svg"
             />
             <img
-              className="absolute top-20 right-[12%] z-20"
+              className="absolute top-14 lg:top-20 right-[12%] z-20"
               src="/home/potential/Star.svg"
             />
             <img
-              className="absolute top-[15%] right-20 z-20"
+              className="absolute lg:top-[15%]  lg:right-20 z-20"
               src="/home/potential/RollingLine.svg"
             />
             <img
               className="absolute top-[18%] right-0 z-20"
               src="/home/potential/Pencil.svg"
             />
-          </div>
+          </div> }
 
           {/* Animated Potential Boxes */}
-          <div className="my-20  flex flex-wrap justify-center gap-6 ">
+          <div className="my-10 lg:my-20  flex flex-wrap justify-center gap-10 lg:gap-6 ">
             {boxData.map((item, index) => (
               <motion.div
                 className="z-20"
@@ -68,7 +70,7 @@ export default function SectionFour() {
               className="absolute w-full z-10"
               initial={{ opacity: 0, y: "200px" }}
               whileInView={{
-                opacity: 1,
+                opacity: !removeAnimate ? 1: 0,
                 y: "-210px",
                 transition: { duration: 0.8 },
               }}
