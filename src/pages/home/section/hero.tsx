@@ -41,9 +41,9 @@ export default function Hero() {
   return (
     <div className="bg-black mx-5 p-uno" ref={textRef}>
       <div className="container mx-auto">
-        <div className="flex justify-between">
+        <div className="flex flex-col items-center lg:flex-row md:justify-between">
           {/* Left Content */}
-          <div className="flex flex-col gap-10 items-center max-w-[50%] justify-center">
+          <div className="flex flex-col gap-6 lg:gap-10 items-center max-w-[50%] justify-center">
             {/* <motion.div
               className="flex tracking-normal"
               variants={containerVariants}
@@ -67,21 +67,21 @@ export default function Hero() {
           </div>
 
           {/* Right Animations */}
-          <div className="relative max-w-[475px]">
+          <div className="relative max-w-[475px] xs:hidden">
             <img
               className="float-right relative"
               src="/home/animation/bg.svg"
             />
 
             <motion.img
-              className="absolute right-50 top-10 will-change-transform"
+              className="absolute right-50 top-10 will-change-transform "
               src="/home/animation/bulb-light.svg"
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
             <img
               src="/home/animation/bulb.svg"
-              className="absolute right-50 top-10 will-change-transform"
+              className="absolute right-50 top-10 will-change-transform "
             />
             <motion.img
               src="/home/animation/girl.svg"
@@ -89,7 +89,7 @@ export default function Hero() {
             />
             <motion.img
               src="/home/animation/eyes.svg"
-              className="absolute left-[10%] top-20 will-change-transform"
+              className="absolute left-[10%] top-20 will-change-transform "
               initial={{ y: 76, x: 64 }}
               animate={{ x: [60, 62, 64, 62, 60] }}
               transition={{ duration: 1, repeat: Infinity }}

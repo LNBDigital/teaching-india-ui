@@ -101,11 +101,11 @@ export default function SectionThree() {
  
   return (
     <div className="container mx-auto "  ref={container}>
-      <div className="p-uno py-[10rem] flex flex-wrap items-start gap-16"  >
+      <div className="p-uno py-4 lg:py-[10rem] lg:px-6 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-16"  >
         {/* Left Side Content */}
-        <div className="flex-1 min-w-[300px] sticky top-[150px] self-start">
+        <div className="flex-1 min-w-[300px] sticky top-[150px] self-start px-6 lg:px-0">
           <div className="grid gap-10">
-            <CustomHead className="uppercase text-black leading-16 tracking-wide text-[64px]">
+            <CustomHead className="uppercase text-black lg:leading-16 tracking-wide text-4xl lg:text-[64px]">
               <span className="text-blue">
                 Smart Learning <br />
               </span>
@@ -115,7 +115,7 @@ export default function SectionThree() {
           </div>
         </div>
         {/* Right Side Rules Boxes */}
-        <div className="flex-1 min-w-[300px] flex flex-col gap-12" >
+        <div className="flex-1 min-w-[300px] flex flex-col gap-5" >
           {ruleData.map((item, i) => (
             <AnimatedRuleBox
               key={i}

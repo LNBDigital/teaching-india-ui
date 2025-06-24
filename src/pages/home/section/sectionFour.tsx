@@ -11,9 +11,9 @@ export default function SectionFour() {
   ];
 
   return (
-    <div className="bg-blue p-15 overflow-hidden">
+    <div className="bg-blue p-5 overflow-hidden">
       <div className="container mx-auto">
-        <div className="bg-peach border border-black rounded-xl py-5 relative overflow-hidden">
+        <div className="bg-peach rounded-xl py-5 relative overflow-hidden">
           {/* Headings */}
           <div className="text-center">
             <h4 className="text-[64px]">Unlock your potential</h4>
@@ -75,21 +75,21 @@ export default function SectionFour() {
             />
           </div>
           {/* Description + Button */}
-          <div className="px-10 pb-50 pt-60 flex">
+          <div className="px-4 lg:px-10 pb-50 lg:pt-60 flex">
             <div className="flex flex-col gap-5 relative z-20">
-              <h4 className="text-[64px] leading-[60px]">
+              <h4 className="text-4xl lg:text-[64px] lg:leading-[60px]">
                 How does learning <br />
                 happen here?
               </h4>
-              <p className="text-[36px] text-black">
+              <p className="text-2xl lg:text-[36px] text-black">
                 Start your journey by <br />
                 selecting your class
               </p>
-              <div className="mt-10">
+              <div className="mt-0 lg:mt-10">
                 <CustomBlueImgBtn className="">Register Now</CustomBlueImgBtn>
               </div>
             </div>
-            <div className="absolute bottom-0 my-10">
+            <div className="absolute bottom-20 left-0 my-0 lg:my-10">
               <img src="/gif/home/steps.gif" />
             </div>
           </div>

@@ -36,20 +36,20 @@ export default function Footer() {
   return (
     <footer className="bg-black1 w-full">
       <div className="container mx-auto flex flex-col items-center gap-8 p-10">
-        <div className="flex justify-center gap-10 w-full max-w-[1340px]">
-          <FooterAnim initX={-60}>
-            <div className="bg-peach p-10 w-[576px] rounded-[30px]">
+        <div className="flex flex-col lg:flex-row justify-center gap-10 w-full">
+          <FooterAnim initX={-60} className="max-w-[575px] w-full">
+            <div className="bg-peach p-10 rounded-[30px]">
               <img
                 src="/home/logo.svg"
                 alt="Logo"
-                className="brightness-0 w-[440px]"
+                className="brightness-0 w-full lg:w-[440px] h-full"
               />
             </div>
           </FooterAnim>
 
-          <FooterAnim initX={60}>
-            <div className="bg-lightBlue3 w-[730px] h-[270px] rounded-[30px] flex flex-col items-center justify-center">
-              <a className="text-[24px] my-2 cursor-pointer">Link</a>
+          <FooterAnim initX={60} className="w-full h-full">
+            <div className="bg-lightBlue3 w-full min-w-[280px] max-w-full max-h-[280px] h-full py-[52px] xs:p-12 rounded-[30px] flex flex-col items-center justify-center">
+ <a className="text-lg xs:text-[24px] my-2 cursor-pointer">Link</a>
               <ul className="flex flex-col gap-2">
                 <li className="text-[16px]">Class 9</li>
                 <li className="text-[16px]">Class 10</li>
