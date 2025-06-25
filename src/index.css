@@ -42,6 +42,7 @@ body{
   margin: 0;
 padding: 0;
 background-color: var(--color-peach);
+overflow-x: hidden;
 }
 .container{
   max-width: 1600px;

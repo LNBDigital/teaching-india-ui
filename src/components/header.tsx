@@ -23,12 +23,12 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > 0) {
         setShowHeader(false);
       } else {
         setShowHeader(true);
       }
-      setIsScrolled(currentScrollY > 50);
+      setIsScrolled(currentScrollY > 0);
       setLastScrollY(currentScrollY);
     };
 
@@ -40,21 +40,21 @@ function Header() {
     <div
       className={`transition-all duration-500 mt-5 sticky mx-5 rounded-t-xl z-30 ${
         isScrolled
-          ? " px-0 bg-transparent after:w-full after:h-20 after:absolute after:backdrop-blur-xl after:rounded-2xl after:-top-2 after:-z-10"
+          ? " px-0 bg-transparent after:w-full after:h-14 after:absolute after:backdrop-blur-xl after:rounded-2xl after:-top-2 after:-z-10"
           : "top-0 px-4 md:px-14 bg-black"
       } ${showHeader ? "translate-y-0 top-2" : "-translate-y-full"} transform`}
     >
       <div
-        className={`container backdrop-blur-3xl mx-auto sticky top-0 ${
+        className={`backdrop-blur-3xl mx-auto sticky top-0 ${
           isScrolled
-            ? "py-4 px-5 md:px-7 top-5 rounded-xl bg-black"
+            ? "py-2 px-5 md:px-7 top-5 rounded-xl bg-black"
             : "py-0 top-0"
         }`}
       >
         <div className="flex items-center justify-between transition-all duration-500">
           <img
             src="/home/logo.svg"
-            className={`${isScrolled ? "max-w-[100px]" : "w-fit p-2"}`}
+            className={`${isScrolled ? "max-w-[70px]" : "w-fit p-2"}`}
             alt="Logo"
           />
 
@@ -72,8 +72,8 @@ function Header() {
           </div>
 
           {/* Desktop Button */}
-          <div className="hidden md:block">
-            <CustomBlueBtn>Login</CustomBlueBtn>
+          <div className={`hidden md:block ${isScrolled ? "mb-1":"mb-0"}`}>
+            <CustomBlueBtn >Login</CustomBlueBtn>
           </div>
         </div>
 

@@ -13,10 +13,10 @@ export const RulesBox = ({spanContent=1,headingContent="Teaching that ignites cu
         <div className="flex flex-col max-w-[640px] bg-white p-[25px] rounded-xl">
             <div className="flex items-center gap-2 lg:gap-6">
                 <span className={`w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] text-md lg:text-[24px] flex items-center justify-center bg-blue text-white rounded-full tracking-[2px] ${isMac ? "pt-1": "pb-2 "}`}>0{spanContent}</span>
-                <h4 className="text-xl lg:text-[36px] lg:leading-[48px] max-w-[28rem]">{headingContent}</h4>
+                <h4 className="text-xl lg:text-[23px] max-w-[28rem]">{headingContent}</h4>
             </div>
             <div>
-                <p className="text-md lg:text-[24px] lg:leading-[48px] py-5">{subHeading}</p>
+                <p className="text-md lg:text-[14.5px]  py-5">{subHeading}</p>
             </div>
         </div>
     )

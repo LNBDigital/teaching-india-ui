@@ -74,33 +74,33 @@ export default function Hero() {
             !removeAnimate ? 
                    <div className="relative max-w-[475px] xs:hidden">
             <img
-              className="float-right relative"
-              src="/home/animation/bg.svg"
+              className="float-right relative h-[650px]"
+              src="/home/animation/bg.png"
             />
 
             <motion.img
-              className="absolute right-29 lg:right-50 top-5 lg:top-10 w-[80px] lg:w-fit will-change-transform "
+              className="absolute right-29 lg:right-46 top-5 lg:top-10 w-[80px] lg:w-fit will-change-transform "
               src="/home/animation/bulb-light.svg"
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
             <img
               src="/home/animation/bulb.svg"
-              className="absolute right-29 lg:right-50 top-6 lg:top-10 will-change-transform w-[80px] lg:w-fit"
+              className="absolute right-29 lg:right-46 top-6 lg:top-10 will-change-transform w-[80px] lg:w-fit"
             />
             <motion.img
-              src="/home/animation/girl.svg"
-              className="absolute left-[18%] lg:left-[10%] w-[90px] lg:w-fit top-22 lg:top-20 will-change-transform"
+              src="/home/animation/girl.png"
+              className="absolute left-[5%] w-[170px] top-18.5 will-change-transform"
             />
             <motion.img
               src="/home/animation/eyes.svg"
-              className="absolute left-[9%] lg:left-[10%] top-13 lg:top-20 w-[30px] lg:w-fit will-change-transform "
+              className="absolute left-[9%] lg:left-[5%] top-8 lg:top-18 w-[30px] lg:w-fit will-change-transform "
               initial={{ y: 76, x: 64 }}
               animate={{ x: [60, 62, 64, 62, 60] }}
               transition={{ duration: 1, repeat: Infinity }}
             />
             <motion.img
-              className="absolute right-10 lg:right-26 top-10 lg:top-0 will-change-transform"
+              className="absolute right-10 lg:right-20 top-10 lg:top-0 will-change-transform"
               src="/home/animation/star.svg"
               animate={{ scale: [0.1, 1.1, 0.1] }}
               transition={{
@@ -121,7 +121,7 @@ export default function Hero() {
               }}
             />
             <motion.img
-              className="absolute left-0 lg:left-[7%] bottom-40 lg:bottom-60 w-[100px] lg:w-fit will-change-transform"
+              className="absolute left-0 lg:left-[2%] bottom-40 lg:bottom-50 w-[100px] lg:w-fit will-change-transform"
               src="/home/animation/cloud.svg"
               animate={{ y: [-60, -80, -60], x: [0, 10, 0] }}
               transition={{
@@ -130,13 +130,13 @@ export default function Hero() {
               }}
             />
             <motion.img
-              className="absolute left-[17%] lg:left-[14%] bottom-0 w-[30px] lg:w-fit will-change-transform"
+              className="absolute left-[17%] lg:left-[10%] -bottom-10 w-[30px] lg:w-fit will-change-transform"
               src="/home/animation/pencil.svg"
               animate={{ y: [-80, -120, -80] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
             <motion.img
-              className="absolute right-0 w-[100px] lg:w-fit bottom-[30%] lg:bottom-[36%] will-change-transform"
+              className="absolute right-0 w-[100px] lg:w-fit bottom-[30%] lg:bottom-[32%] will-change-transform"
               src="/home/animation/aeroplane.svg"
               animate={{
                 rotate: [0,20,40,20, 0], // smooth nose tilt
@@ -151,19 +151,19 @@ export default function Hero() {
             />
 
             <motion.img
-              className="absolute left-[33%] lg:left-[35%] bottom-48 w-[100px] lg:w-fit lg:bottom-68 will-change-transform"
+              className="absolute left-[33%] lg:left-[32%] bottom-40 w-[100px] lg:w-fit lg:bottom-56 will-change-transform"
               src="/home/animation/book.svg"
               animate={{ scale: [0.8, 1, 0.8] }}
               transition={{ duration: 4, ease: easeInOut, repeat: Infinity }}
             />
             <motion.img
-              className="absolute right-2 lg:right-10 bottom-26 lg:bottom-36 will-change-transform"
+              className="absolute right-2 lg:right-3 bottom-26 lg:bottom-26 will-change-transform"
               src="/home/animation/spinner.svg"
               animate={{ rotate: 360 }}
               transition={{ duration: 4, ease: "linear", repeat: Infinity }}
             />
             <motion.div
-              className="absolute right-10 lg:right-13 bottom-10 lg:bottom-16 p-4 w-[80px] lg:w-fit will-change-transform"
+              className="absolute right-10 lg:right-7 bottom-10 lg:bottom-3 p-4 w-[80px] lg:w-fit will-change-transform"
         animate={{ filter: ["invert(40%)", "invert(70%)", "invert(0%)"] }}
               transition={{ duration: 4, ease: "linear", repeat: Infinity }}
             >
@@ -171,12 +171,12 @@ export default function Hero() {
             </motion.div>
 
             <img
-              className="absolute right-[35%] bottom-16 lg:bottom-20 w-[100px] lg:w-fit will-change-transform"
+              className="absolute right-[35%] bottom-16 lg:bottom-8 w-[100px] lg:w-fit will-change-transform"
               src="/home/animation/boy.svg"
             />
             <motion.img
               src="/home/animation/boy-eyes.svg"
-              className="absolute left-[28%] w-[30px] lg:w-fit lg:left-[32%] bottom-[35.5%] lg:bottom-[30%] will-change-transform"
+              className="absolute left-[28%] w-[30px] lg:w-fit lg:left-[29%] bottom-[20%] lg:bottom-[25%] will-change-transform"
               initial={{ y: 76, x: 64 }}
               animate={{ x: [58, 60, 62, 64, 62, 60, 58] }}
               transition={{ duration: 1, repeat: Infinity }}

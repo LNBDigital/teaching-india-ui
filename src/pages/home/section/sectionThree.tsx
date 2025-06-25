@@ -101,7 +101,7 @@ export default function SectionThree() {
  
   return (
     <div className="container mx-auto "  ref={container}>
-      <div className="p-uno py-4 lg:py-[10rem] lg:px-6 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-16"  >
+      <div className="p-uno py-4 lg:py-[10rem] lg:px-18 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-0 lg:gap-16"  >
         {/* Left Side Content */}
         <div className="flex-1 min-w-[300px] lg:sticky top-[150px] self-start px-6 lg:px-0">
           <div className="grid gap-10">
