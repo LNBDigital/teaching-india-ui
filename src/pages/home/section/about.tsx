@@ -98,7 +98,7 @@ export default function AboutUs() {
     bg-no-repeat
     bg-contain
     bg-right
-    bg-[url(/home/about-bg.svg)]
+    bg-[url(/home/about/pin-box.svg)]
   "
       >
         <Animation
