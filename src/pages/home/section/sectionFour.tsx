@@ -13,7 +13,7 @@ export default function SectionFour() {
   ];
 
   return (
-    <div className={`bg-blue p-5 lg:mt-0 ${!removeAnimate ? "pt-5" : "pt-14"}`}>
+    <div className={`bg-blue px-5 py-[28px] lg:mt-0 ${!removeAnimate ? "pt-5" : "pt-14"}`}>
       <div className="container mx-auto">
         <div className="bg-peach rounded-4xl py-5 border-black border-2 relative">
           {/* Headings */}
