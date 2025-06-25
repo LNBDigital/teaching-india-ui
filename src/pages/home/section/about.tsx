@@ -73,7 +73,7 @@ export default function AboutUs() {
   return (
     <div
       ref={sectionRef}
-      className="bg-black mx-5 mb-5 gap-6 lg:gap-0 rounded-b-xl p-4 lg:py-15 lg:px-15 flex flex-col lg:flex-row justify-between "
+      className="bg-black mx-5 mb-5 gap-6 lg:gap-14 rounded-b-xl p-4 lg:py-15 lg:px-15 flex flex-col lg:flex-row justify-center "
     >
       <div className="flex flex-col gap-4 lg:gap-10 justify-center">
         <CustomHead>ABOUT US</CustomHead>
@@ -91,11 +91,12 @@ export default function AboutUs() {
     w-full
     max-w-[300px]
     lg:max-w-[630px]
+    h-full
     aspect-[1/1]
     lg:aspect-[1/1]
     overflow-hidden
     bg-no-repeat
-    bg-cover
+    bg-contain
     bg-right
     bg-[url(/home/about-bg.svg)]
   "

@@ -13,9 +13,9 @@ export default function SectionFour() {
   ];
 
   return (
-    <div className="bg-blue p-5 pt-20 lg:mt-0 overflow-hidden">
+    <div className={`bg-blue p-5 lg:mt-0 ${!removeAnimate ? "pt-5" : "pt-14"}`}>
       <div className="container mx-auto">
-        <div className="bg-peach rounded-xl py-5 relative overflow-hidden">
+        <div className="bg-peach rounded-4xl py-5 border-black border-2 relative">
           {/* Headings */}
           <div className="text-center">
             <h4 className="text-3xl lg:text-[64px]">Unlock your potential</h4>
@@ -25,8 +25,8 @@ export default function SectionFour() {
           </div>
       {!removeAnimate &&     <div className="sideImage ">
             <img
-              className="absolute top-4 lg:top-17 z-20 w-[70px] lg:w-fit"
-              src="/home/potential/Book.svg"
+              className="absolute top-4 lg:top-17 rotate-45 -left-30 max-w-[300px] w-[70px] lg:w-fit"
+              src="/home/potential/book.svg"
             />
             <img
               className="absolute top-36 lg:top-24 left-60 lg:left-70 z-20"
@@ -41,7 +41,7 @@ export default function SectionFour() {
               src="/home/potential/RollingLine.svg"
             />
             <img
-              className="absolute top-[18%] right-0 z-20"
+              className="absolute top-[18%] -right-5 z-20"
               src="/home/potential/Pencil.svg"
             />
           </div> }
@@ -91,7 +91,7 @@ export default function SectionFour() {
                 <CustomBlueImgBtn className="">Register Now</CustomBlueImgBtn>
               </div>
             </div>
-            <div className="absolute bottom-20 left-0 my-0 lg:my-10">
+            <div className="absolute bottom-20 left-0 my-0 lg:left-10 lg:my-10">
               <img src="/gif/home/steps.gif" />
             </div>
           </div>
