@@ -12,6 +12,7 @@ type animation = {
   x?: string[];
   delay?: number;
   imgSrc: string;
+  imgClassName: string;
   className?: string;
   controls?: any;
 };
@@ -21,6 +22,7 @@ export const Animation = ({
   x,
   delay,
   imgSrc,
+  imgClassName="",
   className,
   controls,
 }: animation) => {
@@ -52,7 +54,7 @@ export const Animation = ({
         transition={transition}
         className={`absolute animated-element ${className}`}
       >
-        <img className="w-[100px] lg:w-fit" src={imgSrc} />
+        <img className={`${imgClassName}`} src={imgSrc} />
       </motion.div>
     </>
   );
@@ -101,41 +103,48 @@ export default function AboutUs() {
         <Animation
           controls={controls}
           delay={0}
-          imgSrc="/home/animation/icon1.svg"
+          imgClassName="w-[145px]"
+          imgSrc="/home/about/Qus.svg"
           y={["-150px", "460px", "440px", "460px"]}
+          x={["10px"]}
         />
         <Animation
           controls={controls}
+          imgClassName="w-[355px]"
           delay={0.6}
-          imgSrc="/home/animation/icon2.svg"
+          imgSrc="/home/about/Doubt.svg"
           y={["-100px", "520px", "500px", "520px"]}
           x={["153px"]}
         />
         <Animation
           controls={controls}
           delay={0.9}
-          imgSrc="/home/animation/icon3.svg"
-          y={["-100px", "410px", "400px", "420px"]}
+          imgClassName="w-[170px]"
+          imgSrc="/home/about/Notes.svg"
+          y={["-100px", "420px", "400px", "420px"]}
           x={["130px"]}
         />
         <Animation
           controls={controls}
           delay={1.2}
-          imgSrc="/home/animation/icon4.svg"
+          imgClassName="w-[220px]"
+          imgSrc="/home/about/Quizzes.svg"
           y={["-100px", "310px", "300px", "320px"]}
           x={["160px"]}
         />
         <Animation
           controls={controls}
           delay={1.4}
-          imgSrc="/home/animation/icon5.svg"
-          y={["-120px", "190px", "180px", "200px"]}
+          imgClassName="w-[95px]"
+          imgSrc="/home/about/Video.svg"
+          y={["-100px", "210px", "220px", "240px"]}
           x={["100px"]}
         />
         <Animation
           controls={controls}
           delay={1.6}
-          imgSrc="/home/animation/icon6.svg"
+          imgClassName="w-[370px]"
+          imgSrc="/home/about/Lecture.svg"
           y={["-175px", "190px", "170px", "190px"]}
           x={["220px"]}
         />

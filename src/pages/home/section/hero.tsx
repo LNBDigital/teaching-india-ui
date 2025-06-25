@@ -44,7 +44,7 @@ export default function Hero() {
   return (
     <div className="bg-black mx-5 p-uno" ref={textRef}>
       <div className="container mx-auto">
-        <div className="flex flex-col items-center lg:flex-row md:justify-between">
+        <div className="flex flex-col items-center lg:px-10 lg:flex-row md:justify-between">
           {/* Left Content */}
           <div className="flex flex-col gap-6 lg:gap-10 items-center max-w-[50%] justify-center">
             {/* <motion.div
@@ -139,13 +139,12 @@ export default function Hero() {
               className="absolute right-0 w-[100px] lg:w-fit bottom-[30%] lg:bottom-[36%] will-change-transform"
               src="/home/animation/aeroplane.svg"
               animate={{
-                rotate: [-10, 10, -10], // smooth nose tilt
-                y: [-20, -60, -20], // gentle vertical arc
+                rotate: [0,20,40,20, 0], // smooth nose tilt
+                y: [-10, -30, -10], // gentle vertical arc
                 x: [0, 5, 0], // slight forward nudge
               }}
               transition={{
-                duration: 2.5,
-                delay: 0.5,
+                duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}

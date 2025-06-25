@@ -66,7 +66,7 @@ export default function SectionFour() {
             ))}
 
             <motion.img
-              src="/home/rainbow.svg"
+              src="/home/potential/rainbow.svg"
               className="absolute w-full z-10"
               initial={{ opacity: 0, y: "200px" }}
               whileInView={{
@@ -77,7 +77,7 @@ export default function SectionFour() {
             />
           </div>
           {/* Description + Button */}
-          <div className="px-4 lg:px-10 pb-50 lg:pt-60 flex">
+          <div className="px-4 lg:px-10 pb-50 lg:pt-[30rem] flex">
             <div className="flex flex-col gap-5 relative z-20">
               <h4 className="text-4xl lg:text-[64px] lg:leading-[60px]">
                 How does learning <br />
