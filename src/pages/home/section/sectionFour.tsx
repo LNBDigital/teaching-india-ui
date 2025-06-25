@@ -26,7 +26,7 @@ export default function SectionFour() {
       {!removeAnimate &&     <div className="sideImage ">
             <img
               className="absolute top-4 lg:top-17 rotate-45 -left-30 max-w-[300px] w-[70px] lg:w-fit"
-              src="/home/potential/book.svg"
+              src="/home/potential/Book.svg"
             />
             <img
               className="absolute top-36 lg:top-24 left-60 lg:left-70 z-20"
