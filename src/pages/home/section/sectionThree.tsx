@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CustomBlueImgBtn } from "../../../components/buttons/button";
 import { CustomHead } from "../../../components/global";
 import { RulesBox } from "../../../components/layout/home/components";
@@ -22,7 +22,7 @@ function AnimatedRuleBox({item, index }:Rulebox) {
 ;
 const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["end start", "end start"]
+    offset: ["start start", "end start"]
   });
  
   const card1Opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -103,7 +103,7 @@ export default function SectionThree() {
     <div className="container mx-auto "  ref={container}>
       <div className="p-uno py-4 lg:py-[10rem] lg:px-18 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-0 lg:gap-16"  >
         {/* Left Side Content */}
-        <div className="flex-1 min-w-[300px] lg:sticky top-[100px] self-start px-6 lg:px-0">
+        <div className={`flex-1 min-w-[300px] lg:sticky top-[100px] self-start px-6 lg:px-0`}>
           <div className="grid gap-10">
             <CustomHead className="uppercase text-black lg:leading-16 tracking-wide text-4xl lg:text-[64px]">
               <span className="text-blue">
