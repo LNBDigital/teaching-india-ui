@@ -14,6 +14,6 @@ export const CustomBlueBtn = ({children,...props}:CustomBlueBtn) =>{
 export const CustomBlueImgBtn = ({children,...props}:CustomBlueBtn) =>{
 const isMac = useMacCheck();
     return(
-        <button {...props} className="bg-lightBlue shadow-shadow1 rounded-4xl px-2 py-1 lg:w-[265px] lg:pl-3 cursor-pointer w-fit justify-end flex items-center"><span className={`pl-0 text-xs lg:text-xl lg:tracking-[0.06em] ${isMac ? "mt-1": "mb-[4px]"}`}>{children}</span> <img className="pl-8" src="/icons/right-arrow.svg" /></button>
+        <button {...props} className="bg-lightBlue shadow-shadow1 rounded-4xl px-2 py-1 lg:w-[265px] lg:pl-3 cursor-pointer w-fit justify-end flex items-center"><span className={`pl-4 text-xs lg:text-xl lg:tracking-[0.06em] ${isMac ? "mt-1": "mb-[4px]"}`}>{children}</span> <img className="pl-5" src="/icons/right-arrow.svg" /></button>
     )
 }
