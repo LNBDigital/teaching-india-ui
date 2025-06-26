@@ -66,7 +66,7 @@ export default function SectionFour() {
             ))}
 
             <motion.img
-              src="/home/potential/rainbow.svg"
+              src="/home/potential/rainbow.png"
               className="absolute w-full z-10"
               initial={{ opacity: 0, y: "200px" }}
               whileInView={{
