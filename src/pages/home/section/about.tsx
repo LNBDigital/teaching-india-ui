@@ -152,7 +152,7 @@ export default function AboutUs() {
       </div> 
       : 
       <div>
-        <img src="/gif/home/about.svg" />
+        <img src="/gif/home/about.png" />
         </div>
     }
     </div>

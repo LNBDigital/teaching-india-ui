@@ -37,7 +37,7 @@ export default function Footer() {
     <footer className="bg-black1 w-full">
       <div className="container mx-auto flex flex-col items-center gap-4 lg:gap-8 p-4 lg:p-10">
         <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-10 w-full">
-          <FooterAnim initX={-60} className="max-w-[575px] w-full">
+          <FooterAnim initX={-60} className="lg:max-w-[575px] w-full">
             <div className="bg-peach p-4 lg:p-10 rounded-[30px] flex justify-center">
               <img
                 src="/home/logo.svg"
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
       <motion.div
-  className="bg-blue rounded-[20px] w-full max-w-[1340px]"
+  className="bg-blue rounded-[20px] w-full"
   initial={{ opacity: 0, y: 100 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 1, delay: 0.20 }}

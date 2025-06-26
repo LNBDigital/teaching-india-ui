@@ -182,8 +182,8 @@ export default function Hero() {
               transition={{ duration: 1, repeat: Infinity }}
             />
           </div>
-          : <div>
-            <img src="/gif/home/hero.svg" />
+          : <div className="p-4">
+            <img src="/gif/home/hero.png" />
           </div>
           }
    
