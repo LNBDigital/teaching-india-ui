@@ -115,7 +115,7 @@ export default function SectionThree() {
           </div>
         </div>
         {/* Right Side Rules Boxes */}
-        <div className="flex-1 w-full flex flex-col gap-4" >
+        <div className="mt-10 lg:mt-0 flex-1 w-full flex flex-col gap-4" >
           {ruleData.map((item, i) => (
             <AnimatedRuleBox
               key={i}
