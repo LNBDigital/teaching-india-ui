@@ -22,7 +22,7 @@ function AnimatedRuleBox({item, index }:Rulebox) {
 ;
 const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"]
+    offset: ["end start", "end start"]
   });
  
   const card1Opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
