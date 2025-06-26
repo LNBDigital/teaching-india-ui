@@ -25,14 +25,14 @@ const { scrollYProgress } = useScroll({
     offset: ["start start", "end start"]
   });
  
-  const card1Opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const card1Y = useTransform(scrollYProgress, [0, 1], [50, 600]);
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+    const card1Y = useTransform(scrollYProgress, [0, 1], [0, 600]);
  
-    const card2Opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-    const card2Y = useTransform(scrollYProgress, [0, 1], [50, 600]);
+    const card2Opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0])
+    const card2Y = useTransform(scrollYProgress, [0, 1], [0, 300]);
  
     const card3Opacity = useTransform(scrollYProgress, [0, 0.5], [1, 1]);
-    const card3Y = useTransform(scrollYProgress, [0, 1], [50, 0]);
+    const card3Y = useTransform(scrollYProgress, [0, 0], [0, 0]);
  
  
   const ruleData = [
@@ -103,7 +103,7 @@ export default function SectionThree() {
     <div className="container mx-auto "  ref={container}>
       <div className="p-uno py-4 lg:py-[10rem] lg:px-18 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-0 lg:gap-16"  >
         {/* Left Side Content */}
-        <div className="flex-1 min-w-[300px] lg:sticky top-[150px] self-start px-6 lg:px-0">
+        <div className="flex-1 min-w-[300px] lg:sticky top-[100px] self-start px-6 lg:px-0">
           <div className="grid gap-10">
             <CustomHead className="uppercase text-black lg:leading-16 tracking-wide text-4xl lg:text-[64px]">
               <span className="text-blue">
