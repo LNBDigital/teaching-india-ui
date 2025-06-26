@@ -106,7 +106,7 @@ export default function AboutUs() {
           delay={0}
           imgClassName="w-[145px]"
           imgSrc="/home/about/Qus.svg"
-          y={["-16  0px", "460px", "440px", "460px"]}
+          y={["-170px", "460px", "440px", "460px"]}
           x={["10px"]}
         />
         <Animation
