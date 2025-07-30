@@ -1,4 +1,4 @@
-import { CustomHead, CustomPara } from "../../../components/global";
+import { CustomHead, CustomPara } from "src/components/Content/CustomHead&SubHead";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 

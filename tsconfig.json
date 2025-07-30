@@ -1,7 +1,24 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "jsx": "react-jsx",    
+    "types": ["react", "react-dom", "node"],  // ✅ Added "node" types
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsxImportSource": "react",
+    "lib": ["DOM", "ESNext","ES2023"],
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,     // ✅ Added this
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "lib/*": ["src/lib/*"]
+    },
+    "isolatedModules": true,
+    "noEmit": true,
+  },
+  "include": ["src"],
 }

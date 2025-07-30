@@ -1,8 +1,8 @@
-import AboutUs from "./section/about";
-import Hero from "./section/hero";
-import SectionFive from "./section/sectionFive";
-import SectionFour from "./section/sectionFour";
-import SectionThree from "./section/sectionThree";
+import AboutUs from "./section/About";
+import Hero from "./section/Hero";
+import SectionThree from "./section/SectionThree";
+import SectionFour from "./section/SectionFour";
+import SectionFive from "./section/SectionFive";
 
 export default function Home(){
 return(

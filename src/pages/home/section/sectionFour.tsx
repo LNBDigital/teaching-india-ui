@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { CustomBlueImgBtn } from "../../../components/buttons/button";
-import { PotentialBox } from "../../../components/layout/home/components";
-import { animationOff } from "../../../lib/global/animationOff";
+import { CustomBlueImgBtn } from "src/components/buttons/Button";
+import { PotentialBox } from "src/components/home/components";
+import { animationOff } from "src/lib/global/animationOff";
 
 export default function SectionFour() {
   const removeAnimate = animationOff();
