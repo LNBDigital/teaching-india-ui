@@ -45,10 +45,6 @@ export default function Dashboard() {
     });
   }, []);
 
-  const handleSubject = (item)=>{
-    
-  }
-
   return (
     <div className="container mx-auto">
       <div className="bg-black mx-8 my-5 rounded-lg p-4">
