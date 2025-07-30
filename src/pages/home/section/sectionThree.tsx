@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { CustomBlueImgBtn } from "../../../components/buttons/button";
-import { CustomHead } from "../../../components/global";
-import { RulesBox } from "../../../components/layout/home/components";
+import {  useRef } from "react";
+import { CustomBlueImgBtn } from "src/components/buttons/Button";
+import { CustomHead } from "src/components/Content/CustomHead&SubHead";
+import { RulesBox } from "src/components/home/components";
 import {
   useScroll,
   useTransform,

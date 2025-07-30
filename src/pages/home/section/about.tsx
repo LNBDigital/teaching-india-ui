@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
-import { CustomHead, CustomPara } from "../../../components/global";
+import { CustomHead, CustomPara } from "src/components/Content/CustomHead&SubHead";
 import {
+  easeIn,
   motion,
   useAnimation,
   useInView,
 } from "framer-motion";
-import { animationOff } from "../../../lib/global/animationOff";
+import { animationOff } from "src/lib/global/animationOff";
 
 type animation = {
   y: string[];
@@ -29,7 +30,7 @@ export const Animation = ({
 
   const transition = {
     duration: 1.5,
-    ease: "easeIn",
+    ease: easeIn,
     delay: delay,
   };
   const variant = {

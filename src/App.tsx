@@ -1,14 +1,33 @@
-import Footer from "./components/footer"
-import Header from "./components/header"
-import Home from "./pages/home"
-function App() {
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Footer from "./footer.js";
+import Header from "./header.js";
+import Home from "./pages/home/index.js";
+import Dashboard from "./dashboard/Dashboard.js";
+import SubjectDetail from "./dashboard/SubjectDetail.js";
+
+function Layout() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
     <>
-    <Header />
-    <Home />
-    <Footer />
+      {isHome && <Header />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/subject/:slug" element={<SubjectDetail />} />
+      </Routes>
+      {isHome && <Footer />}
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+  );
+}
+
+export default App;

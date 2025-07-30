@@ -1,7 +1,7 @@
 import { easeInOut, motion, useAnimation, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
-import { CustomBlueImgBtn } from "../../../components/buttons/button";
-import { CustomHead } from "../../../components/global";
+import { CustomBlueImgBtn } from "src/components/buttons/Button";
+import { CustomHead } from "src/components/Content/CustomHead&SubHead";
 import { animationOff } from "../../../lib/global/animationOff";
 
 

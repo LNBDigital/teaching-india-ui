@@ -8,78 +8,99 @@
   --color-lightBlue: #B4C7F2;
   --color-lightBlue2:#D1D5DB;
   --color-lightBlue3:#B3C5F1;
+  --color-lightBlue4:#7c85e0;
+  --color-lightBlue5:#7890eb;
   --color-peach:#F5EDE1;
   --color-peach2:#F6EDE2;
+  --color-peach3:#FFFAF3;
+  --color-pink1:#f7ebeb;
    /* black shades */
    --color-black1:#292521;
    --color-black2:#1F2937;
    --color-black3:#374151;
    --color-black4:#4B5563;
    --color-black5:#6B7280;
-   /* padding */
-   --padding-uno:0px 2rem;
-   /* font */
-   --font-primary:"Etna", sans-serif;
-   /* shadow */
-   --shadow-shadow1: 4px 4px 0px 0px var(--color-blue);
-   --shadow-shadow2: 0px 21.6px 0px 0px #000000;
-}
-@font-face {
-  font-family: "Etna";
-  src: local("Etna"),url("./assets/fonts/etna-free-font.otf"),format("otf");
-}
-@font-face{
-  font-family: "Gellatio";
-  src: local("Gellatio"),url("./assets/fonts/GellatioPersonalUse.ttf"),format(("ttf"));
-}
-html{
-margin: 0;
-padding: 0;
-}
-body{
-  font-family: "Etna";
-  font-weight: 200;
+   --color-black6:#111827;
+     /* white color */
+    --color-white1: #ffffff;
+    --color-white2: #fffcfa;
+    --color-white3: #fcf6f2;
+    --color-white4: rgba(255, 255, 255, 0.8);
+    --color-white5: #99ffffff;
+    /* padding */
+    --padding-uno:0px 2rem;
+    /* font */
+    --font-primary:"Etna", sans-serif;
+    /* shadow */
+    --shadow-shadow1: 4px 4px 0px 0px var(--color-blue);
+    --shadow-shadow2: 0px 21.6px 0px 0px #000000;
+      --shadow1: 0px 2px 8px 0px rgba(167, 126, 108, 0.6);
+    --shadow2: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+    --shadow3: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    --shadow4: 0px 8px 32px 0px rgba(0, 0, 0, 0.24);
+    
+  }
+  @font-face {
+    font-family: "Etna";
+    src: local("Etna"),url("/assets/fonts/etna-free-font.otf"),format("otf");
+  }
+  @font-face{
+    font-family: "Gellatio";
+    src: local("Gellatio"),url("/assets/fonts/GellatioPersonalUse.ttf"),format(("ttf"));
+  }
+  html{
   margin: 0;
-padding: 0;
-background-color: var(--color-peach);
-overflow-x: hidden;
-}
-.container{
-  max-width: 1600px;
-  display: flex;
-  flex-direction: column;
-}
-.swiper-button-prev, .swiper-button-next{
-  color: white !important;
-  width: 50px !important;
-  height: 50px !important;
-  background-color: var(--color-blue);
-  text-align: center;
-  top: 85% !important;
-  border-radius: 100%;
-}
-.swiper-button-prev:after, .swiper-button-next:after{
-  font-size: 22px !important;
-}
-.swiper-button-prev{
-  left: 10% !important
-}
- .swiper-button-next{
-    right: 10% !important
- }
- .gellatio{
-  font-family: "Gellatio";
- }
+  padding: 0;
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-     .animated-element {
-       /* Disable animations */
-       transition: none !important;
-     }
-   }
+  body{
+    font-family: "Etna";
+    font-weight: 200;
+    margin: 0;
+  padding: 0;
+  background-color: var(--color-peach);
+  overflow-x: hidden;
+  }
+  .container{
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+  }
+  .swiper-button-prev, .swiper-button-next{
+    color: white !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: var(--color-blue);
+    text-align: center;
+    top: 85% !important;
+    border-radius: 100%;
+  }
+  .swiper-button-prev:after, .swiper-button-next:after{
+    font-size: 22px !important;
+  }
+  .swiper-button-prev{
+    left: 10% !important
+  }
+  .swiper-button-next{
+      right: 10% !important
+  }
+  .gellatio{
+    font-family: "Gellatio";
+  }
+  .formselect li:hover{
+    background-color: #7790ed40;
+    border-radius: 5px;
+  }
 
-   @media screen and (max-width:1024px) {
-    @theme{
-         --padding-uno:0px 0px;
+      @media (prefers-reduced-motion: reduce) {
+      .animated-element {
+        /* Disable animations */
+        transition: none !important;
+      }
     }
-   }
+
+    @media screen and (max-width:1024px) {
+      @theme{
+          --padding-uno:0px 0px;
+      }
+    }
