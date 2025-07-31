@@ -1,4 +1,4 @@
-"use client";
+
 import React, { FormEvent, useEffect, useState } from "react";
 import { apiRequest } from "src/lib/api";
 import { environment } from "src/lib/env";

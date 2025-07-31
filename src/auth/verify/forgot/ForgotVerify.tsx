@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
-import { FormBlackBtn } from "src/components/buttons/But";
+import { FormBlackBtn } from "src/components/buttons/Button";
 import { FormOtpInput, FormResendOtp } from "src/components/form/OtherFormInput";
 import { PopupMainHeading } from "src/components/form/Popup";
 import { apiRequest } from "src/lib/api";
@@ -22,7 +22,7 @@ interface OtpData {
 }
 
 
-export default function VerifyReset() {
+export default function ForgotVerify() {
   const [formData, setFormData] = useState<FormData>({
     country_code: "",
     phone_country: "",

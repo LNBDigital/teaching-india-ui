@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { CustomBlueImgBtn } from "src/components/buttons/Button";
-import { PotentialBox } from "src/components/home/components";
+import { PotentialBox } from "src/components/home/Components";
 import { animationOff } from "src/lib/global/animationOff";
 
 export default function SectionFour() {

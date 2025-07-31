@@ -1,7 +1,7 @@
 import {  useRef } from "react";
 import { CustomBlueImgBtn } from "src/components/buttons/Button";
 import { CustomHead } from "src/components/Content/CustomHead&SubHead";
-import { RulesBox } from "src/components/home/components";
+import { RulesBox } from "src/components/home/Components";
 import {
   useScroll,
   useTransform,
