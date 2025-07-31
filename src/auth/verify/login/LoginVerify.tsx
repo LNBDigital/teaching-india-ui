@@ -3,7 +3,7 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { apiRequest } from "src/lib/api";
 import { environment } from "src/lib/env";
 import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
- import Cookies from 'js-cookie';
+ import Cookies from "js-cookie";
 import { PopCountryCode, PopInput } from "src/components/form/Popup";
 import { FaWhatsapp } from "react-icons/fa6";
 import { DisplayFormErrors } from "src/lib/errors";
@@ -94,6 +94,7 @@ export default function LoginVerify() {
       if (data && data.status === "success") {
         if (data.data.token) {
           Cookies.set("authToken", data.data.token);
+          
         }
         if (data.redirect_to) {
           setLoader(false);

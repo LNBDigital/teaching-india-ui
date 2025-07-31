@@ -81,7 +81,7 @@ export default function LoginPhone({ switchToEmail,successVerifyScreen }: PropDa
         <div className="grid">
           <div className="flex gap-2">
             <PopCountryCode
-              onChange={({ country_code, phone_country }) => {
+              onChange={({ country_code, phone_country }:{country_code:string,phone_country:string}) => {
                 setPhoneData((prev) => ({
                   ...prev,
                   country_code,
@@ -95,7 +95,7 @@ export default function LoginPhone({ switchToEmail,successVerifyScreen }: PropDa
               type="tel"
               name="phone"
               value={phoneData.phone}
-              onChange={(e) =>
+              onChange={(e:React.ChangeEvent<HTMLInputElement>) =>
                 setPhoneData((prev) => ({
                   ...prev,
                   phone: e.target.value,

@@ -1,24 +1,27 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",    
-    "types": ["react", "react-dom", "node"],  // ✅ Added "node" types
-    "module": "ESNext",
     "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "lib": ["DOM", "ESNext","ES2023"],
-    "allowJs": true,
-    "moduleResolution": "bundler",
+    "strict": true,                            // ✅ Strict type-checking
+    "forceConsistentCasingInFileNames": true,  // ✅ Case sensitivity check
+    "noEmit": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,     // ✅ Added this
+    "skipLibCheck": true,                     // ✅ Check type defs from node_modules
+    "allowJs": true,                          // ❌ Disallow JS files for stricter codebase
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "src/*": ["src/*"],
       "components/*": ["src/components/*"],
       "lib/*": ["src/lib/*"]
-    },
-    "isolatedModules": true,
-    "noEmit": true,
+    }
   },
   "include": ["src/*"],
+  "exclude": ["node_modules", "dist"]
 }

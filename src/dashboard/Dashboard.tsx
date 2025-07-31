@@ -9,12 +9,12 @@ interface Prefill {
     {
       id: string;
       name: string;
-      feature_icon: string | null;
-      image: string | null;
+      feature_icon: string;
+      image: string;
       slug: string;
-      total_lessons: number | number;
-      total_duration: number | null;
-      lessons_read_count: number | null;
+      total_lessons: number;
+      total_duration: number;
+      lessons_read_count: number ;
       lessons_read_percentage: string;
     }
   ];

@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 
+interface LessonType{
+    slug:string;
+    id:string;
+    name:string;
+    img:string;
+    duration:number | string
+}
 
-export default function LessonSummary({slug,id,name="lesson",img,duration}){
+export default function LessonSummary({slug,id,name,img,duration}:LessonType){
     return(
         <Link to={`/subject/${slug}`} state={{id}} className="p-7 relative bg-peach2 rounded-xl h-[7cm] w-full max-w-lg">
             <p className="text-[2rem] absolute top-15">{name}</p>

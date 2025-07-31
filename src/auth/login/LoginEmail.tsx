@@ -77,7 +77,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
             value={emailData.email}
             type="email"
             name="email"
-            onChange={(e) =>
+            onChange={(e:React.ChangeEvent<HTMLInputElement>) =>
               setEmailData((prev) => ({ ...prev, email: e.target.value }))
             }
             placeholder="Enter your email"
@@ -89,7 +89,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
           <PopupLabel content={"Password"} />
           <PopPassword
             value={emailData.password}
-            onChange={(e) =>
+            onChange={(e:React.ChangeEvent<HTMLInputElement>) =>
               setEmailData((prev) => ({ ...prev, password: e.target.value }))
             }
           />

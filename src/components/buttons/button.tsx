@@ -1,7 +1,5 @@
 import {  type ButtonHTMLAttributes, type PropsWithChildren } from "react"
 import { useMacCheck } from "../../lib/global/global"
-import ButtonLoader from "src/components/common/loader/ButtonLoader";
-
 
 
 type CustomBlueBtn = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
@@ -19,34 +17,6 @@ const isMac = useMacCheck();
     )
 }
 
-export const FormButtonWhite = ({ children, className = ``, ...props }) => {
-  return (
-    <button
-      type="button"
-      {...props}
-      className={`border text-blue font-semibold border-blue px-2 py-2 flex items-center justify-center rounded-md gap-3 w-2/6 md:w-2/9 cursor-pointer ${className}`}
-    >
-      <img
-        alt="image"
-        src="/icons/left.svg"
-        {...props}
-      />
-      {children}
-    </button>
-  );
-};
-
-export const FormButtonBlue = ({ textContent, className = ``, ...props }) => {
-  return (
-    <button
-      className={`bg-blue text-(--whiteColor1) font-semibold px-2 py-2 flex items-center justify-center rounded-md gap-3 w-2/6 md:w-2/9 cursor-pointer ${className}`}
-      {...props}
-    >
-      {textContent}
-      <img alt="image" src="/icons/right.svg" />
-    </button>
-  );
-};
 
 export const FormBlackBtn = ({ content, type="submit", ...props }:CustomBlueBtn) => {
   return (
@@ -60,23 +30,4 @@ export const FormBlackBtn = ({ content, type="submit", ...props }:CustomBlueBtn)
   );
 };
 
-export const SimpleBlueBtn = ({
-  loader = false,
-  className = "",
-  children,
-  ...props
-}) => {
-  return (
-    !loader ? (
-      <button
-        {...props}
-        type="submit"
-        className={`bg-blue w-full p-2 rounded-md text-white uppercase cursor-pointer ${className}`}
-      >
-        {children}
-      </button>
-    ): (
-      <ButtonLoader />
-    )
-  );
-};
+

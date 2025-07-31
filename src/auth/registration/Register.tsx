@@ -31,23 +31,25 @@ type ErrorResponse = {
   message?: string;
 };
 
+interface Register {
+   name: string,
+    email: string,
+    phone: string,
+    phone_code: string,
+    phone_country: string,
+    gender: string,
+    password: string,
+    board_id: number | null,
+    class_id: number | null,
+    school_name: string,
+    father_name: string,
+    mother_name: string,
+    cf_turnstile_response: 12232,
+}
+
 export default function Register({ switchToLogin }: Props) {
   const gender = ["male", "female"];
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    phone_code: "91",
-    phone_country: "IN",
-    gender: "",
-    password: "",
-    board_id: null,
-    class_id: null,
-    school_name: "",
-    father_name: "",
-    mother_name: "",
-    cf_turnstile_response: 12232,
-  });
+  const [formData, setFormData] = useState<Partial<Register>>({});
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>(
     undefined
   );
@@ -131,7 +133,7 @@ export default function Register({ switchToLogin }: Props) {
           <PopupLabel content="Phone Number" />
           <div className="flex justify-between gap-2">
             <PopCountryCode
-              onChange={({ country_code, phone_country }) => {
+              onChange={({ country_code, phone_country }:{country_code:string,phone_country:string}) => {
                 setFormData((prev) => ({
                   ...prev,
                   country_code,
@@ -145,7 +147,7 @@ export default function Register({ switchToLogin }: Props) {
               type="tel"
               name="phone"
               value={formData.phone}
-              onChange={(e) =>
+              onChange={(e:React.ChangeEvent<HTMLInputElement>) =>
                 setFormData((prev) => ({
                   ...prev,
                   phone: e.target.value,
