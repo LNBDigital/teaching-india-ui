@@ -2,7 +2,7 @@
 import { PopInput, PopupLabel } from "src/components/form/Popup";
 import { DisplayFormErrors } from "src/lib/errors";
 import {  useState } from "react";
-import { SimpleBlueBtn } from "src/components/buttons/Button";
+import { FormBlackBtn } from "src/components/buttons/Button";
 
 interface FormType{
     email:string;
@@ -32,7 +32,7 @@ export default function ResetPassword(){
                       />
                       <DisplayFormErrors name="email" errors={errors} />
                     </div>
-                   <SimpleBlueBtn>Reset Password</SimpleBlueBtn>
+                   <FormBlackBtn>Reset Password</FormBlackBtn>
         </form>
     )
 }
