@@ -83,7 +83,7 @@ export default function LessonDetailPage() {
   />
 </div>
         <div>
-          <SimpleBluBtn className="absolute -top-22 left-0 xl:left-auto xl:right-12 w-fit" link="/dashboard">
+          <SimpleBluBtn className="-top-35 absolute md:-top-28 left-0 xl:left-auto xl:right-12 w-fit" link="/dashboard">
             Go to Menu
           </SimpleBluBtn>
           <h4 className="text-xl xl:text-2xl my-1 xl:my-5">{cache?.name}</h4>
