@@ -11,6 +11,7 @@ import { environment } from "src/lib/env";
 import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
 import { DisplayFormErrors } from "src/lib/errors";
 import { apiRequest } from "src/lib/api";
+import Cookies from "js-cookie";
 
 interface FnType {
   switchToPhone: () => void;
@@ -20,7 +21,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
   const [emailData, setEmailData] = useState({
     email: "",
     password: "",
-    cf_turnstile_response: "",
+    cf_turnstile_response: 1234,
   });
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>();
   const [loader, setLoader] = useState(false);
@@ -42,7 +43,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
 
       if (data?.status === "success") {
         if (data.data?.token) {
-          sessionStorage.setItem("authToken", data.data.token);
+          Cookies.set("authToken", data.data.token);
         }
 
         if (data?.redirect_to) {
@@ -51,6 +52,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
       }
     } catch (err: unknown) {
       const error = err as ApiTypeError;
+      console.log(error,"err")
       if (typeof error?.errors === "object") {
         setErrors(error.errors);
       } else {

@@ -3,7 +3,8 @@ import Footer from "./footer.js";
 import Header from "./header.js";
 import Home from "./pages/home/index.js";
 import Dashboard from "./dashboard/Dashboard.js";
-import SubjectDetail from "./dashboard/SubjectDetail.js";
+import LessonPage from "./dashboard/LessonsPage.js";
+import LessonDetailPage from "./dashboard/LessonDetailPage.js";
 
 function Layout() {
   const location = useLocation();
@@ -15,7 +16,8 @@ function Layout() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/subject/:slug" element={<SubjectDetail />} />
+        <Route path="/subject/:slug" element={<LessonPage />} />
+        <Route path="/subject/:slug/:lessonid" element={<LessonDetailPage />} />
       </Routes>
       {isHome && <Footer />}
     </>

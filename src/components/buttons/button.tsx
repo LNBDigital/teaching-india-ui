@@ -1,5 +1,6 @@
-import {  type ButtonHTMLAttributes, type PropsWithChildren } from "react"
+import React, {  type ButtonHTMLAttributes, type PropsWithChildren } from "react"
 import { useMacCheck } from "../../lib/global/global"
+import { Link, LinkProps } from "react-router-dom";
 
 
 type CustomBlueBtn = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
@@ -17,7 +18,6 @@ const isMac = useMacCheck();
     )
 }
 
-
 export const FormBlackBtn = ({ content, type="submit", ...props }:CustomBlueBtn) => {
   return (
     <button
@@ -30,4 +30,25 @@ export const FormBlackBtn = ({ content, type="submit", ...props }:CustomBlueBtn)
   );
 };
 
+interface SimpleBluBtnProps extends Omit<LinkProps, 'to'> {
+  link: string;
+  className?: string;
+  children: React.ReactNode;
+}
 
+export const SimpleBluBtn: React.FC<SimpleBluBtnProps> = ({
+  link,
+  className = '',
+  children,
+  ...props
+}) => {
+  return (
+    <Link
+      to={link}
+      {...props}
+      className={`bg-lightBlue5 py-1 px-16 text-white rounded-md ${className}`}
+    >
+      {children}
+    </Link>
+  );
+};

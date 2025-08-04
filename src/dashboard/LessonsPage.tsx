@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router";
 import LessonSummary from "src/components/dashboard/LessonSummary";
+import DashboardWrapper from "src/components/wrapper/common/DashboardWrapper";
 import { getPrefetchData } from "src/lib/getApi";
+import { useLessonStore } from "src/lib/store/lessonStore";
 
 interface Prefill {
   id: string;
@@ -27,31 +29,37 @@ interface Prefill {
   ];
 }
 
-export default function SubjectDetail() {
+export default function LessonDetail() {
+  //use hidden params
   const location = useLocation();
-  const id = location.state?.id;
-  const [lesson, setLesson] = useState<Prefill | null>(null);
-  useEffect(() => {
-    getPrefetchData<Prefill>(`subjects/${id}`).then((data) => {
-      setLesson(data);
+  const subjectId = location.state?.subjectId;
+  //set lesson data
+  const { cache, setLessonData } = useLessonStore();
+  //check if the id is present
+
+useEffect(() => {
+  if (subjectId && !cache?.id) {
+    getPrefetchData<Prefill>(`subjects/${subjectId}`).then((data) => {
+      if (data) {
+        setLessonData(data); // Will now merge properly
+      }
     });
-  }, []);
+  }
+}, [subjectId]);
 
   return (
-    <div className="bg-black px-8 py-15 h-screen">
-        <h3 className="text-peach2 uppercase text-[3rem]">Subject - {lesson?.name}</h3>
-      <div className="grid grid-cols-3 gap-4 mt-6">
-        {lesson?.lessons?.map((item, index) => (
+    <DashboardWrapper heading={`Subject - ${cache?.name}`}>
+      <div className="grid grid-cols-3 gap-7 mt-6">
+        {cache?.lessons.map((item, index) => (
           <LessonSummary
             key={index}
-            slug={item.name}
-            id={item.id}
+            lessonId={item.id}
             name={item.name}
             img={item.image}
             duration={item.duration}
           />
         ))}
       </div>
-    </div>
+    </DashboardWrapper>
   );
 }
