@@ -13,7 +13,7 @@ import Register from "./registration/Register";
     }, [registerSwitch]);
     return (
       <div className="container mx-auto">
-          <div className=" flex fixed top-0  w-full p-4 h-screen bg-[rgba(0,0,0,0.5)] inset-0 z-40 flex-col items-center justify-center">
+          <div className=" flex fixed top-0  w-full p-4 bg-[rgba(0,0,0,0.5)] inset-0 z-40 flex-col items-center justify-center">
   <div className="relative bg-peach3 w-full max-w-6xl max-h-[700px] rounded-xl shadow-lg overflow-hidden flex flex-col gap-15 xl:gap-30 md:flex-row">
              <div className="">
                <img src="/popup-creative.svg" className="hidden lg:block"  />
