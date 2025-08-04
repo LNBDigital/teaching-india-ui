@@ -51,8 +51,8 @@ useEffect(() => {
 console.log(cache,"cac")
 
   return (
-    <DashboardWrapper heading={`Subject - ${cache?.name}`}>
-      <div className="grid grid-cols-3 gap-7 mt-6">
+    <DashboardWrapper className="h-screen" heading={`Subject - ${cache?.name}`}>
+      <div className="grid md:grid-cols-3 gap-7 mt-6">
         {cache?.lessons.map((item, index) => (
           <LessonSummary
             key={index}
