@@ -92,7 +92,7 @@ function Header() {
               <CustomLinks>Pricing</CustomLinks>
               <CustomLinks>About</CustomLinks>
             </ul>
-            <CustomBlueBtn >Login</CustomBlueBtn>
+            <CustomBlueBtn onClick={()=>setShowPopup(true)} >Login</CustomBlueBtn>
           </div>
         )}
       </div>

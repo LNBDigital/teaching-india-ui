@@ -9,6 +9,7 @@ interface Lesson {
   duration: number;
   pdf: string;
   question_pdf: string;
+  feature_icon:string
   image: string;
   video: string;
   is_read: boolean;

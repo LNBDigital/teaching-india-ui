@@ -22,6 +22,7 @@ interface Prefill {
       duration: number;
       pdf: string;
       question_pdf: string;
+    feature_icon:string;
       image: string;
       video: string;
       is_read: boolean;
@@ -47,6 +48,8 @@ useEffect(() => {
   }
 }, [subjectId]);
 
+console.log(cache,"cac")
+
   return (
     <DashboardWrapper heading={`Subject - ${cache?.name}`}>
       <div className="grid grid-cols-3 gap-7 mt-6">
@@ -55,7 +58,7 @@ useEffect(() => {
             key={index}
             lessonId={item.id}
             name={item.name}
-            img={item.image}
+            img={item.feature_icon}
             duration={item.duration}
           />
         ))}
