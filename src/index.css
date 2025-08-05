@@ -33,6 +33,7 @@
     --padding-uno:0px 2rem;
     /* font */
     --font-primary:"Etna", sans-serif;
+    --font-temporary:"Gellatio";
     /* shadow */
     --shadow-shadow1: 4px 4px 0px 0px var(--color-blue);
     --shadow-shadow2: 0px 21.6px 0px 0px #000000;

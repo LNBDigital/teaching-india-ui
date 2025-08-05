@@ -54,31 +54,17 @@ const {clearCache} = useLessonStore()
 
   return (
     <div className="container mx-auto">
-      <div className="bg-black mx-8 my-5 rounded-lg p-4">
-        <div className="flex justify-between ">
-          <h2 className="text-[26px] text-lightBlue4">elevia</h2>
-          <span className="text-[18px] text-lightBlue4">Dashboard</span>
-          <img alt="user" width={50} src="/dashboard/home/user.png" />
+      <div className="bg-black px-10 py-4">
+        <div className="flex flex-col items-center md:items-start md:flex-row md:justify-between">
+          {/* content */}
+        <div className="flex flex-col md:mt-24">
+          <h2 className="text-white text-[38px] uppercase mb-4">{prefillData?.class}</h2>
+          <p className="text-white text-[37px] uppercase">Welcome Back {prefillData?.name}</p>
+          <p className="text-white text-[19px]">You're doing great in your studies. Ready for your next lesson?</p>
         </div>
-        <div className="flex flex-col  gap-2 py-10 px-5 md:px-15">
-          <div className="bg-[url('/dashboard/home/name-pattern.svg')] bg-cover rounded-b-2xl p-8">
-            <h4 className=" border-[1.5px] border-black rounded-md md:rounded-lg px-2 text-sm md:mt-7 md:text-lg md:py-1 lg:px-4 lg:py-2 w-fit">
-              {prefillData?.class}
-            </h4>
-            <h5 className="text-xl md:text-3xl lg:text-4xl xl:text-[4rem] mt-3 lg:mt-6">
-              Welcome Back {prefillData?.name ?? "Guest"} 👋
-            </h5>
-            <h6 className="text-sm md:text-md md:pb-10 lg:text-lg uppercase">
-              You're doing great in your studies. Ready for your next lesson?
-            </h6>
-          </div>
-          <Img />
+      <img className="w-full max-w-xs lg:w-auto" width={400} src="/dashboard/home/main.png" alt="home-image" />
         </div>
-      </div>
-
-      <DashboardWrapper
-       heading={`${prefillData?.class} - Subjects`}>
-        <div className="grid  justify-items-center md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid justify-items-center md:grid-cols-2 xl:grid-cols-3 my-10 gap-4">
           {prefillData?.subjects.map((item, index) => (
             <SubjectSummary
               slug={item.slug}
@@ -95,7 +81,7 @@ const {clearCache} = useLessonStore()
             />
           ))}
         </div>
-      </DashboardWrapper>
+        </div>
 
       <div className="p-7 md:p-14 flex flex-col xl:flex-row items-center gap-10 xl:gap-30">
         <div>

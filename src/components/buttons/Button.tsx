@@ -4,10 +4,10 @@ import { Link, LinkProps } from "react-router-dom";
 
 
 type CustomBlueBtn = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
-export const CustomBlueBtn = ({children,...props}:CustomBlueBtn) =>{
+export const CustomBlueBtn = ({...props}:CustomBlueBtn) =>{
     const isMac = useMacCheck();
     return(
-        <button {...props} className="bg-lightBlue shadow-shadow1 rounded-4xl px-3 py-1 cursor-pointer lg:tracking-[0.06em]"><span className={`${isMac ? "mt-1": "mb-[4px]"}`}>{children}</span></button>
+        <button {...props} className={`bg-lightBlue shadow-shadow1 rounded-4xl px-3 py-1 cursor-pointer lg:tracking-[0.06em] ${isMac ? "mt-0": "pb-3 leading-3"}`}>{props.children}</button>
     )
 }
 

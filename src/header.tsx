@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CustomBlueBtn } from "src/components/buttons/Button";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi"; // icons for mobile toggle
 import AuthModel from "src/auth/AuthModel"
+import { useMacCheck } from "./lib/global/global";
 type customLi = {
   children: React.ReactNode;
 };
@@ -76,9 +77,8 @@ function Header() {
 
           {/* Desktop Button */}
           <div className={`hidden md:block ${isScrolled ? "mb-1":"mb-0"}`}>
-            <CustomBlueBtn >
-            
-            <button className="cursor-pointer" onClick={()=>setShowPopup(true)}>Login</button>
+            <CustomBlueBtn onClick={()=>setShowPopup(true)} >
+        login
             </CustomBlueBtn>
           </div>
         </div>
