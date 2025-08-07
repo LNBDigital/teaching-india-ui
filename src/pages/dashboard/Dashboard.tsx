@@ -50,6 +50,7 @@ export default function Dashboard() {
       }
     });
   }, []);
+
   if (!prefillData) return <FallBack />
 
   return (

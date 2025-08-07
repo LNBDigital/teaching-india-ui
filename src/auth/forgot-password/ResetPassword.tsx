@@ -1,5 +1,4 @@
 import {
-  PopInput,
   PopPassword,
   PopupLabel,
   PopupMainHeading,
@@ -11,7 +10,6 @@ import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
 import { environment } from "src/lib/env";
 import { apiRequest } from "src/lib/api";
 import LoginSwitcher from "../login/LoginSwitcher";
-import LoginEmail from "../login/LoginEmail";
 import Register from "../registration/Register";
 
 interface FormType {

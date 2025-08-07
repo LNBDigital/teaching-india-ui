@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-export default function SubjectSummary({slug,subjectId,subject="subject",lesson:{completed=3,total=8,remaining=7},img,read="42%",...props}){
+export default function SubjectSummary({slug,subjectId,subject="subject",lesson:{completed=3,total=8,remaining=7},img,read,...props}){
     return(
         <Link {...props} to={`/subject/${slug}`} state={{subjectId}} className="p-7 relative bg-peach2 rounded-xl h-[7cm] w-full max-w-lg">
             <p className="text-xl md:text-[2rem] absolute top-15">{subject}</p>
