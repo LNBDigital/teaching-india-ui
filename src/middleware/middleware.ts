@@ -12,10 +12,14 @@ export default function Middleware({
   const location = useLocation();
   //protected routes for dashboard
   const dashboardRoute = ["/dashboard","/subject"]
-
+  const currentPath = location.pathname;
   useEffect(() => {
-    if (dashboardRoute.some((route)=>location.pathname.startsWith(route)) && !authToken) {
+    if (dashboardRoute.some((route)=>currentPath.startsWith(route)) && !authToken) {
       navigate("/",{replace:true});
+      return;
+    }
+    if (currentPath === "/" && authToken) {
+      navigate("/dashboard",{replace:true});
       return;
     }
   }, [authToken,location,navigate]);

@@ -19,10 +19,9 @@ import EditProfile from "./pages/dashboard/EditProfile.js";
 function DashboardRoute() {
   return (
     <>
-      <Middleware>
+
         <DashboardHeader />
         <Outlet />
-      </Middleware>
     </>
   );
 }
@@ -64,7 +63,9 @@ function Layout() {
 function App() {
   return (
     <BrowserRouter>
+    <Middleware>
       <Layout />
+    </Middleware>
     </BrowserRouter>
   );
 }
