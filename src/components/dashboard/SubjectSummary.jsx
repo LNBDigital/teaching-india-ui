@@ -21,7 +21,7 @@ export default function SubjectSummary({
       <img
         width={200}
         alt="icons"
-        className="w-[120px] xs:w-fit absolute top-10 xs:top-0 right-4 xs:-right-3"
+        className=" w-40  sm:w-[200px] xl:w-full xl:max-w-[200px] absolute top-0 xs:top-0 right-0 xs:-right-3"
         src={img}
       />
       <div className="xs:w-[7cm] md:w-xs absolute bottom-7 grid gap-2">
