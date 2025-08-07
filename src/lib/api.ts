@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ErrorResponse } from "react-router";
 
 export async function apiRequest<T>(
   url: string,
@@ -47,29 +46,8 @@ export async function axiosPost({url,data}:PostType){
   }
 }
 
+interface AxiosPostType{
+  url:string | null;
+  data:string[] | string | null; 
+}
 
-  // const formHandler = async (e:React.FormEvent) =>{
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post(`${environment.API_PROD}registration`,formData,{
-  //       headers:{
-  //         "Accept":"application/json"
-  //       }
-  //     })
-  //     if (res.data && res.data.status  === "success") {
-  //        sessionStorage.setItem(
-  //         "registerOTPData",
-  //         JSON.stringify({ ...res.data, isLogin: false })
-  //       );
-  //       setVerifyScreen(true);
-  //     }
-  //   } catch (error) {
-      
-  //     if (error && error.response.data.errors ) {
-  //       const err = error.response.data.errors
-  //       if (typeof err === "object"){
-  //         setErrors(err as Record<string, string[]>);
-  //       }
-  //     }
-  //   }
-  // }

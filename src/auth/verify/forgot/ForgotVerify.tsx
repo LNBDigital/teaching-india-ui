@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
+import ResetPassword from "src/auth/forgot-password/ResetPassword";
 import { FormBlackBtn } from "src/components/buttons/Button";
 import { FormOtpInput, FormResendOtp } from "src/components/form/OtherFormInput";
 import { PopupMainHeading } from "src/components/form/Popup";
@@ -10,7 +11,7 @@ import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
 
 // Types
 interface FormData {
-  country_code: string;
+  phone_code: string;
   phone_country: string;
   phone: string;
   type: string;
@@ -19,12 +20,13 @@ interface FormData {
 interface OtpData {
   otp: string;
   phone: string;
+  cf_turnstile_response:number;
 }
 
 
 export default function ForgotVerify() {
   const [formData, setFormData] = useState<FormData>({
-    country_code: "",
+    phone_code: "",
     phone_country: "",
     phone: "",
     type: "whatsapp",
@@ -33,11 +35,13 @@ export default function ForgotVerify() {
   const [otpData, setOtpData] = useState<OtpData>({
     otp: "",
     phone: "",
+    cf_turnstile_response:1223
   });
 
-  const [otpSuccess, setOtpSuccess] = useState(false);
+  const [resenOtpVal, setResendOtpVal] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>(undefined);
   const [newErrors, setNewErrors] = useState<Record<string, string[]> | undefined>(undefined);
+  const [success,setSuccess] = useState(false);
     //setLoader
   const [loader,setLoader] = useState(false);
   useEffect(() => {
@@ -47,13 +51,13 @@ export default function ForgotVerify() {
         const parseData = JSON.parse(objectData);
         const data = parseData.data ?? parseData;
         setFormData({
-          country_code: data.country_code ?? "",
+          phone_code: data.phone_code ?? "",
           phone_country: data.phone_country ?? "",
           phone: data.phone ?? "",
           type: "whatsapp",
         });
         setOtpData((prev) => ({ ...prev, phone: data.phone ?? "" }));
-        setOtpSuccess(false);
+        setResendOtpVal(false);
       } catch (error) {
         console.error("Parsing error:", error);
       }
@@ -74,11 +78,12 @@ export default function ForgotVerify() {
           method: "POST",
         }
       );
-
       if (error) throw error;
-
       if (data && data.status === "success") {
          setLoader(false);
+              sessionStorage.clear();
+              
+              setSuccess(true);
       }
     } catch (error: unknown) {
       const err = error as ApiTypeError;
@@ -106,7 +111,7 @@ export default function ForgotVerify() {
 
       if (data && data.status === "success") {
         console.log("OTP sent successfully");
-        setOtpSuccess(true);
+        setResendOtpVal(true);
       }
     } catch (error: unknown) {
       const err = error as ApiTypeError;
@@ -118,9 +123,10 @@ export default function ForgotVerify() {
     }
   };
 
+  if (success) return <ResetPassword phone={formData.phone} />
+
   return (
     <div className="flex flex-col gap-3 items-center my-10">
-     <PopupMainHeading content={{heading:"Forgot Your Password?",subHeading:"Enter your email to receive a link and create a new password."}} />
       <p className="text-(--blackColor5) text-[18px] text-center flex flex-col gap-1 items-center ">
         Enter the 4-digit code sent to your <br />
         <span className="flex items-center gap-2">
@@ -128,7 +134,7 @@ export default function ForgotVerify() {
         </span>
       </p>
       <span>
-        +{formData.country_code + " " + formData.phone}
+        +{formData.phone_code + " " + formData.phone}
       </span>
 
       <div>
@@ -147,21 +153,16 @@ export default function ForgotVerify() {
           />
           <DisplayFormErrors name="otp" errors={errors} />
 
-          <FormBlackBtn content="Verify & Continue" />
+          <FormBlackBtn content={loader ?  "Verifying..." : "Verify & Continue"  } />
         </form>
       </div>
 
-      <FormResendOtp onSubmit={resendOtp} value={otpSuccess}>
-        <input value={formData.country_code} type="hidden" />
+      <FormResendOtp onSubmit={resendOtp} value={resenOtpVal}>
+        <input value={formData.phone_code} type="hidden" />
         <input value={formData.phone} type="hidden" />
         <input value={formData.type} type="hidden" />
       </FormResendOtp>
-            <DisplayFormErrors name="phone" errors={newErrors} />
-      <span className="text-(--blackColor5) text-[16px] text-center">
-        Your phone number is only used for verification and <br /> will remain
-        confidential.
-      </span>
-      
+      <DisplayFormErrors name="phone" errors={newErrors} />
     </div>
   );
 }

@@ -16,6 +16,7 @@ import {
   DemoFormBoards,
   DemoFormClasses,
 } from "src/components/form/DemoFormSelect.jsx";
+import { FormGender } from "src/components/form/DemoFormStatic.jsx";
 
 type Props = {
   switchToLogin?: () => void;
@@ -44,11 +45,10 @@ interface Register {
     school_name: string,
     father_name: string,
     mother_name: string,
-    cf_turnstile_response: 12232,
+    cf_turnstile_response: string | number,
 }
 
 export default function Register({ switchToLogin }: Props) {
-  const gender = ["male", "female"];
   const [formData, setFormData] = useState<Partial<Register>>({});
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>(
     undefined
@@ -75,6 +75,7 @@ export default function Register({ switchToLogin }: Props) {
       }
     } catch (err: unknown) {
       const error = err as ErrorResponse;
+      console.log(error,"err")
       if (typeof error?.errors === "object") {
         setErrors(error.errors as Record<string, string[]>);
       } else if (typeof error?.errors === "string") {
@@ -101,17 +102,7 @@ export default function Register({ switchToLogin }: Props) {
         <div className="grid">
           <PopupLabel content="Gender" />
           <div className="relative">
-            <PopSelect select={formData.gender || "Select"}>
-              {gender.map((gen) => (
-                <li
-                  key={gen}
-                  className="capitalize"
-                  onClick={() => setFormData({ ...formData, gender: gen })}
-                >
-                  {gen}
-                </li>
-              ))}
-            </PopSelect>
+           <FormGender value={formData.gender} onChange={(gender:string)=>setFormData((prev)=>({...prev,gender:gender}))} />
             <DisplayFormErrors name="gender" errors={errors} />
           </div>
         </div>
@@ -133,11 +124,11 @@ export default function Register({ switchToLogin }: Props) {
           <PopupLabel content="Phone Number" />
           <div className="flex justify-between gap-2">
             <PopCountryCode
-              onChange={({ country_code, phone_country }:{country_code:string,phone_country:string}) => {
+              onChange={({ phone_code, phone_country }:{phone_code:string,phone_country:string}) => {
                 setFormData((prev) => ({
                   ...prev,
-                  country_code,
-                  phone_country,
+                phone_code:phone_code,
+                phone_country:phone_country
                 }));
               }}
             />

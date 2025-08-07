@@ -1,23 +1,37 @@
+import axios from "axios";
 import Cookies from "js-cookie"
-import React, { ButtonHTMLAttributes, useEffect, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react"
+import { Link, useNavigate } from "react-router-dom";
+import { environment } from "./lib/env";
 
 interface SideBarType{
     closeWrap:(param:boolean)=>void;
-
 }
 
 const SideBar:React.FC<SideBarType> = ({closeWrap}) =>{
     const navigation = useNavigate();
     const handleLogOut = async (e:React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault();
-       Cookies.remove("authToken");
+       try {
+        const result = await axios.post(`${environment.API_PROD}logout`,null,{
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+                "Authorization": `bearer ${Cookies.get("authToken")}`
+            }
+        });
+        if (result.data && result.data.status === "success") {
+            Cookies.remove("authToken");
         navigation("/");
+        }
+       } catch (error) {
+        console.log(error);
+       }
     }
     const className= "hover:text-lightBlue4 cursor-pointer"
     return(
         <div className="flex z-10 flex-col items-start bg-white absolute right-8 top-17 py-4 pl-3 pr-8 rounded-md">
-            <button className={className}>Edit Profile</button>
+            <Link to={"/edit-profile"} className={className}>Edit Profile</Link>
             <button onClick={handleLogOut} className={className}>Log Out</button>
         </div>
     )
@@ -39,24 +53,32 @@ export default function DashboardHeader(){
                 setShowBar(false)
             }
         }
-        document.addEventListener("mousedown",outsideHandler);
+        document.addEventListener("mouseover",outsideHandler);
         window.addEventListener("scroll",scrollHandler)
         return()=>{
-             document.removeEventListener("mousedown",outsideHandler);
+             document.removeEventListener("mouseover",outsideHandler);
              window.removeEventListener("scroll",scrollHandler)
         };
     },[])
 
     return( 
-        <div ref={ref} className="flex relative items-center bg-black justify-between py-4 px-8">
-            <h3 className="font-temporary text-[26px] text-lightBlue4">elevia</h3>
-            <h4 className="text-[18px] text-lightBlue4">Dashboard</h4>
-            <button className="cursor-pointer" onClick={()=>setShowBar((prev)=>(!prev))} >
+        <div ref={ref} className=" bg-black py-2 px-3 lg:px-18">
+            <div className="container mx-auto ">
+                <div className="grid grid-cols-3 relative ">
+             <img
+            src="/home/logo.svg"
+            className="w-full max-w-[70px] lg:max-w-full lg:w-fit"
+            alt="Logo"
+          />
+            <Link to={"/dashboard"} className="text-lg inline-flex items-center justify-center text-white">Dashboard</Link>
+            <button className="cursor-pointer inline-flex items-center justify-end" onClick={()=>setShowBar((prev)=>(!prev))} >
                 <img className="w-10" src="/dashboard/home/user.png" />
             </button>
             {
                 showBar &&  <SideBar closeWrap={()=>setShowBar(false)} />
             }
+            </div>
+            </div>
         </div>
     )
 } 

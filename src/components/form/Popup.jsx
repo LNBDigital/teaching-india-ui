@@ -88,6 +88,7 @@ export const PopInput = ({
   name,
   value,
   onChange,
+  disabled=false,
   className = "",
   ...props
 }) => {
@@ -113,8 +114,9 @@ export const PopInput = ({
       value={value}
       onChange={onChange}
       onKeyDown={type === "tel" ? handleKeyDown : undefined}
-      className={`${className} text-black2 bg-white pl-2 border-1 placeholder:text-[18px] placeholder:text-black5 placeholder:font-extralight border-lightBlue2 py-2 rounded-lg font-normal text-[18px]`}
+      className={`${className} ${disabled ? "bg-gray-100" : "bg-white"} text-black2 pl-2 border-1 placeholder:text-[18px] placeholder:text-black5 placeholder:font-extralight border-lightBlue2 py-2 rounded-lg font-normal text-[18px]`}
       type={type}
+      disabled={disabled}
       placeholder={placeholder}
       name={name}
       {...props}
@@ -122,13 +124,13 @@ export const PopInput = ({
   );
 };
 
-export const PopPassword = ({ value, onChange, name = "password" }) => {
+export const PopPassword = ({ value, placeholder="Create password", onChange, name = "password" }) => {
   const [showpswd, setShowPswd] = useState(false);
   return (
     <div className="relative">
       <PopInput
         className="w-full"
-        placeholder="Create Password"
+        placeholder={placeholder}
         name={name}
         type={showpswd ? "text" : "password"}
         value={value}
@@ -185,7 +187,7 @@ export const PopSelect = ({
 export const PopCountryCode = ({ onChange }) => {
   const [result, setResult] = useState([]);
   const [select, isSelect] = useState({
-    country_code: 91,
+    phone_code: 91,
     phone_country: "IN",
   });
   useEffect(() => {
@@ -198,7 +200,7 @@ export const PopCountryCode = ({ onChange }) => {
 
   const handleValue = (item) => {
     const updated = {
-      country_code: item.phoneCode,
+      phone_code: item.phoneCode,
       phone_country: item.iso2,
     };
     isSelect(updated);
@@ -206,7 +208,7 @@ export const PopCountryCode = ({ onChange }) => {
   return (
     <div className="w-[3cm] h-auto">
       <FormSelect
-        select={`+${select.country_code}` || "Select"}
+        select={`+${select.phone_code}` || "Select"}
       >
         {result.map((item, index) => {
           return (

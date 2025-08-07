@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { SimpleBluBtn } from "src/components/buttons/Button";
+import FallBack from "src/components/common/Fallback";
 import DashboardWrapper from "src/components/wrapper/common/DashboardWrapper";
 import { environment } from "src/lib/env";
 import { useLessonStore } from "src/lib/store/lessonStore";
@@ -76,6 +77,8 @@ export default function LessonDetailPage() {
     }
   };
 
+  if(!lessonid) return <FallBack />
+
   return (
     <DashboardWrapper
       changeBg
@@ -96,7 +99,7 @@ export default function LessonDetailPage() {
         </div>
         <div className="w-full lg:max-w-[30%]">
           <SimpleBluBtn
-            className="-top-23 absolute md:-top-28 left-0 xl:left-auto xl:right-12 w-fit"
+            className="-top-23 absolute md:-top-28 left-0 lg:left-auto xl:right-12 w-fit"
             link="/dashboard"
           >
             Go to Menu
@@ -109,8 +112,8 @@ export default function LessonDetailPage() {
                   onClick={() => setCurrLessonId(item.id)}
                   className={`cursor-pointer w-full text-left p-4 text-md xl:text-2xl border-2 rounded-md ${
                     item.id === currLessonId
-                      ? "bg-lightBlue3 border-white "
-                      : "border-lightBlue4"
+                      ? "bg-lightBlue3 border-lightBlue3"
+                      : "border-lightBlue3"
                   }`}
                 >
                   {item.name} 

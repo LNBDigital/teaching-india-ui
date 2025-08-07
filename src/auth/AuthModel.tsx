@@ -3,7 +3,7 @@
   import LoginSwitcher from "./login/LoginSwitcher";
 import Register from "./registration/Register";
 
-  export default function Page({setShowPopup}:{setShowPopup:(value:boolean)=>void}) {
+  export default function AuthModel({setShowPopup}:{setShowPopup:(value:boolean)=>void}) {
   const [registerSwitch, setRegisterSwitch] = useState(false);
   useEffect(() => {
       document.body.style.overflow = "hidden";

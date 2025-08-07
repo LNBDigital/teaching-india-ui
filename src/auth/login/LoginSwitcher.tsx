@@ -16,7 +16,7 @@ export default function LoginSwitcher({ switchToRegister }: Type) {
   return (
     <div>
       {useEmailLogin ? (
-        <LoginEmail switchToPhone={() => setUseEmailLogin(false)} />
+        <LoginEmail successVerifyScreen={()=>setDisable(true)} switchToPhone={() => setUseEmailLogin(false)} />
       ) : (
         <LoginPhone successVerifyScreen={()=>setDisable(true)} switchToEmail={() => setUseEmailLogin(true)} />
       )}

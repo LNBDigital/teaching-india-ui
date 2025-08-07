@@ -41,7 +41,8 @@
     --shadow2: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
     --shadow3: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
     --shadow4: 0px 8px 32px 0px rgba(0, 0, 0, 0.24);
-    
+    --animation1:
+
   }
   @font-face {
     font-family: "Etna";
@@ -95,7 +96,8 @@
     border-radius: 5px;
   }
 
-      @media (prefers-reduced-motion: reduce) {
+
+  @media (prefers-reduced-motion: reduce) {
       .animated-element {
         /* Disable animations */
         transition: none !important;
@@ -107,3 +109,10 @@
           --padding-uno:0px 0px;
       }
     }
+
+    /* animation */
+  @keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

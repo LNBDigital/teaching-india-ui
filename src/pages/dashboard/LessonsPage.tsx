@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
+import FallBack from "src/components/common/Fallback";
 import LessonSummary from "src/components/dashboard/LessonSummary";
 import DashboardWrapper from "src/components/wrapper/common/DashboardWrapper";
 import { getPrefetchData } from "src/lib/getApi";
@@ -48,7 +49,7 @@ useEffect(() => {
   }
 }, [subjectId]);
 
-console.log(cache,"cac")
+if (!cache) return <FallBack /> 
 
   return (
     <DashboardWrapper className="h-screen" heading={`Subject - ${cache?.name}`}>

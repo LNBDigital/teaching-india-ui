@@ -12,12 +12,16 @@ import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
 import { DisplayFormErrors } from "src/lib/errors";
 import { apiRequest } from "src/lib/api";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import ForgotPassword from "../forgot-password/ForgotPassword";
 
 interface FnType {
   switchToPhone: () => void;
+  successVerifyScreen: (bool:boolean) => void;
 }
 
-export default function LoginEmail({ switchToPhone }: FnType) {
+export default function LoginEmail({ switchToPhone, successVerifyScreen }: FnType) {
+  const navigate = useNavigate();
   const [emailData, setEmailData] = useState({
     email: "",
     password: "",
@@ -25,6 +29,8 @@ export default function LoginEmail({ switchToPhone }: FnType) {
   });
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>();
   const [loader, setLoader] = useState(false);
+
+  const [showForgotScreen,setShowForgotScreen] = useState(false);
 
   const submitData = async (e: FormEvent) => {
     e.preventDefault();
@@ -47,7 +53,8 @@ export default function LoginEmail({ switchToPhone }: FnType) {
         }
 
         if (data?.redirect_to) {
-          window.location.href = `/${data.redirect_to}`;
+          navigate("/dashboard");
+          setLoader(false);
         }
       }
     } catch (err: unknown) {
@@ -58,10 +65,14 @@ export default function LoginEmail({ switchToPhone }: FnType) {
       } else {
         alert(error?.message || "Something went wrong");
       }
-    } finally {
-      setLoader(false);
     }
   };
+
+  const forgotPasswordHandle = ()=>{
+     successVerifyScreen(true)
+    setShowForgotScreen(true);
+  }
+  if (showForgotScreen) return <ForgotPassword />
 
   return (
     <div>
@@ -99,7 +110,7 @@ export default function LoginEmail({ switchToPhone }: FnType) {
         </div>
 
         <div className="flex flex-col gap-3 items-end">
-          <span className="cursor-pointer text-sm text-brown-500">
+          <span className="cursor-pointer text-sm text-brown-500" onClick={forgotPasswordHandle}>
             Forgot Password?
           </span>
           <FormBlackBtn

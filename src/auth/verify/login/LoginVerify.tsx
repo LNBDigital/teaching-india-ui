@@ -1,13 +1,15 @@
-
 import React, { FormEvent, useEffect, useState } from "react";
 import { apiRequest } from "src/lib/api";
 import { environment } from "src/lib/env";
 import { ApiTypeError, ApiTypeStatus } from "src/lib/types/api";
- import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import { PopCountryCode, PopInput } from "src/components/form/Popup";
 import { FaWhatsapp } from "react-icons/fa6";
 import { DisplayFormErrors } from "src/lib/errors";
-import { FormOtpInput, FormResendOtp } from "src/components/form/OtherFormInput";
+import {
+  FormOtpInput,
+  FormResendOtp,
+} from "src/components/form/OtherFormInput";
 import { FormBlackBtn } from "src/components/buttons/Button";
 
 // Types
@@ -36,7 +38,7 @@ export default function LoginVerify() {
   const [otpData, setOtpData] = useState<OtpData>({
     otp: "",
     phone: "",
-    cf_turnstile_response: 1213
+    cf_turnstile_response: 1213,
   });
   const [otpSuccess, setOtpSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>(
@@ -77,7 +79,7 @@ export default function LoginVerify() {
 
   const submitOTP = async (e: FormEvent) => {
     e.preventDefault();
-     setLoader(true);
+    setLoader(true);
     setErrors(undefined);
     if (!otpData.phone || !otpData.otp) return alert("Missing phone or OTP");
     try {
@@ -88,24 +90,21 @@ export default function LoginVerify() {
           method: "POST",
         }
       );
-
       if (error) throw error;
-
       if (data && data.status === "success") {
+        sessionStorage.clear();
         if (data.data.token) {
           Cookies.set("authToken", data.data.token);
-          
         }
         if (data.redirect_to) {
           setLoader(false);
           window.location.href = `/${data.redirect_to}`;
         }
-
         return; // optional, but clarifies early exit
       }
     } catch (error: unknown) {
       const err = error as ApiTypeError;
-        setLoader(false);
+      setLoader(false);
       if (typeof err.errors === "object") {
         setErrors(err.errors as Record<string, string[]>);
       } else {
@@ -114,41 +113,40 @@ export default function LoginVerify() {
     }
   };
 
-const updateNumber = async (e: FormEvent) => {
-  e.preventDefault();
-  // Prevent update if phone hasn't changed
-  if (otpData.phone === formData.phone) {
-    setEditPhone(false);
-    return;
-  }
-  try {
-    const endpoint = isLogin
-      ? `${environment.API_PROD}login`
-      : `${environment.API_PROD}registration`;
-
-    const method = isLogin ? "POST" : "PUT";
-
-    const { data, error } = await apiRequest<ApiTypeStatus>(endpoint, {
-      body: JSON.stringify(formData),
-      method,
-    });
-
-    if (error) throw error;
-
-    if (data && data.status === "success") {
-      setOtpData((prev) => ({ ...prev, phone: formData.phone }));
+  const updateNumber = async (e: FormEvent) => {
+    e.preventDefault();
+    // Prevent update if phone hasn't changed
+    if (otpData.phone === formData.phone) {
       setEditPhone(false);
+      return;
     }
-  } catch (error: unknown) {
-    const err = error as ApiTypeError;
-    if (typeof err.errors === "object") {
-      setNewErrors(err.errors as Record<string, string[]>);
-    } else {
-      alert(err.message || "Something went wrong");
-    }
-  }
-};
+    try {
+      const endpoint = isLogin
+        ? `${environment.API_PROD}login`
+        : `${environment.API_PROD}registration`;
 
+      const method = isLogin ? "POST" : "PUT";
+
+      const { data, error } = await apiRequest<ApiTypeStatus>(endpoint, {
+        body: JSON.stringify(formData),
+        method,
+      });
+
+      if (error) throw error;
+
+      if (data && data.status === "success") {
+        setOtpData((prev) => ({ ...prev, phone: formData.phone }));
+        setEditPhone(false);
+      }
+    } catch (error: unknown) {
+      const err = error as ApiTypeError;
+      if (typeof err.errors === "object") {
+        setNewErrors(err.errors as Record<string, string[]>);
+      } else {
+        alert(err.message || "Something went wrong");
+      }
+    }
+  };
 
   const resendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -256,10 +254,7 @@ const updateNumber = async (e: FormEvent) => {
           />
           <DisplayFormErrors name="otp" errors={errors} />
 
-          <FormBlackBtn
-            type="submit"
-            content="Verify & Continue"
-          />
+          <FormBlackBtn type="submit" content="Verify & Continue" />
         </form>
       </div>
 

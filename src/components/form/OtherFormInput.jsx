@@ -90,6 +90,7 @@ export const FormOtpInput = ({ length = 4, onOtpSubmit, ...props }) => {
           inputMode="numeric"
           maxLength={1}
           value={value}
+          required
           onFocus={(e) => e.target.select()}
           onKeyDown={(e) => handleKeyDown(index, e)}
           onChange={(e) => handleChange(index, e)}
