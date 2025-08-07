@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import AuthModel from "src/auth/AuthModel";
 import { CustomBlueImgBtn } from "src/components/buttons/Button";
 import { PotentialBox } from "src/components/home/Components";
 import { animationOff } from "src/lib/global/animationOff";
@@ -11,6 +13,8 @@ export default function SectionFour() {
     { class: 11, subHead: "Advanced concepts" },
     { class: 12, subHead: "Preparation with specialized" },
   ];
+    const [showPopup,setShowPopup] = useState(false);
+      if (showPopup) return <AuthModel setShowPopup={setShowPopup} />
 
   return (
     <div className={`bg-blue px-5 py-[28px] lg:mt-0 ${!removeAnimate ? "pt-5" : "pt-14"}`}>
@@ -88,7 +92,7 @@ export default function SectionFour() {
                 selecting your class
               </p>
               <div className="mt-0 lg:mt-10">
-                <CustomBlueImgBtn className="">Register Now</CustomBlueImgBtn>
+                <CustomBlueImgBtn className="" onClick={()=>setShowPopup(true)}>Register Now</CustomBlueImgBtn>
               </div>
             </div>
             <div className="absolute bottom-20 left-0 my-0 lg:left-10 lg:my-10">

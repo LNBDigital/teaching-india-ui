@@ -1,14 +1,8 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import { ErrorResponse } from "react-router-dom";
 import { FormBlackBtn } from "src/components/buttons/Button";
+import FallBack from "src/components/common/Fallback";
 import {
-  DemoFormBoards,
-  DemoFormClasses,
-} from "src/components/form/DemoFormSelect";
-import { FormGender } from "src/components/form/DemoFormStatic";
-import {
-  PopCountryCode,
   PopInput,
   PopupLabel,
   PopupMainHeading,
@@ -74,12 +68,12 @@ export default function EditProfile() {
       }
     }
   };
-
+  if(!formData.phone) return <FallBack />
   return (
     <div className="container mx-auto">
       <div className="md:p-10 flex justify-center">
         <form onSubmit={submitData} className="w-full md:max-w-3/4 grid gap-5 bg-white1 shadow-xl p-10 rounded-md">
-        <PopupMainHeading content={{ heading: "Edit your profile ", subHeading: "Right below" }} />
+        <PopupMainHeading content={{ heading: "Edit your profile ", subHeading: "" }} />
           <div className="grid">
             <PopupLabel content="Full Name" />
             <PopInput

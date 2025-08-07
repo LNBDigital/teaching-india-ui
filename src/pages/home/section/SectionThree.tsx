@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import {  useRef, useState } from "react";
 import { CustomBlueImgBtn } from "src/components/buttons/Button";
 import { CustomHead } from "src/components/Content/CustomHead&SubHead";
 import { RulesBox } from "src/components/home/Components";
@@ -7,6 +7,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
+import AuthModel from "src/auth/AuthModel";
  
 type Rulebox = {
   item:{
@@ -19,7 +20,7 @@ type Rulebox = {
 // Animated Rule Box Component
 function AnimatedRuleBox({item, index }:Rulebox) { 
   const containerRef = useRef(null);
-;
+
 const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -58,6 +59,7 @@ const { scrollYProgress } = useScroll({
       isSticky: false
     },
   ];
+   
   return (
     <motion.div
       ref={containerRef}
@@ -98,7 +100,8 @@ export default function SectionThree() {
   ];
  
   const container = useRef(null);
- 
+  const [showPopup,setShowPopup] = useState(false);
+    if (showPopup) return <AuthModel setShowPopup={setShowPopup} />
   return (
     <div className="container mx-auto "  ref={container}>
       <div className="p-uno py-4 lg:py-[10rem] lg:px-18 flex flex-col lg:flex-row flex-wrap justify-center lg:items-start gap-0 lg:gap-16"  >
@@ -111,7 +114,7 @@ export default function SectionThree() {
               </span>
               Start Right <br /> Here
             </CustomHead>
-            <CustomBlueImgBtn>Start Learning</CustomBlueImgBtn>
+            <CustomBlueImgBtn onClick={()=>setShowPopup(true)}>Start Learning</CustomBlueImgBtn>
           </div>
         </div>
         {/* Right Side Rules Boxes */}

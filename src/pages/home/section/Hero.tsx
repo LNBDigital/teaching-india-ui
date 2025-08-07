@@ -1,8 +1,9 @@
 import { easeInOut, motion, useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { CustomBlueImgBtn } from "src/components/buttons/Button";
 import { CustomHead } from "src/components/Content/CustomHead&SubHead";
 import { animationOff } from "../../../lib/global/animationOff";
+import AuthModel from "src/auth/AuthModel";
 
 
 export default function Hero() {
@@ -18,28 +19,8 @@ export default function Hero() {
     }
   }, [isInView, controls]);
 
-  // // Animation variants
-  // const containerVariants = {
-  //   hidden: {},
-  //   visible: {
-  //     transition: {
-  //       staggerChildren: 0.2,
-  //     },
-  //   },
-  // };
-
-  // const letterVariants = {
-  //   hidden: { opacity: 0, x: -18 },
-  //   visible: {
-  //     opacity: 1,
-  //     x: 0,
-  //     transition: {
-  //       duration: 0.8,
-  //       ease: "easeInOut",
-  //       type: "tween",
-  //     },
-  //   },
-  // };
+  const [showPopup,setShowPopup] = useState(false);
+  if (showPopup) return <AuthModel setShowPopup={setShowPopup} />
 
   return (
     <div className="bg-black mx-5 p-uno" ref={textRef}>
@@ -47,26 +28,10 @@ export default function Hero() {
         <div className="flex flex-col items-center lg:px-10 lg:flex-row md:justify-between">
           {/* Left Content */}
           <div className="flex flex-col gap-6 lg:gap-10 items-center max-w-[50%] justify-center">
-            {/* <motion.div
-              className="flex tracking-normal"
-              variants={containerVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              {letter.split("").map((char, index) => (
-                <motion.p
-                  key={index}
-                  variants={letterVariants}
-                  className="text-lightBlue gellatio flex md:text-[210px] h-[6cm] will-change-transform"
-                >
-                  {char}
-                </motion.p>
-              ))}
-            </motion.div> */}
             <img src="/home/elevia.gif"  />
 
             <CustomHead>Elevate Learning. Empower Minds.</CustomHead>
-            <CustomBlueImgBtn>Start Learning</CustomBlueImgBtn>
+            <CustomBlueImgBtn onClick={()=>setShowPopup(true)}>Start Learning</CustomBlueImgBtn>
           </div>
 
           {/* Right Animations */}

@@ -49,7 +49,21 @@ interface Register {
 }
 
 export default function Register({ switchToLogin }: Props) {
-  const [formData, setFormData] = useState<Partial<Register>>({});
+  const [formData, setFormData] = useState<Register>({
+    name: "",
+    email: "",
+    phone: "",
+    phone_code: "",
+    phone_country: "",
+    gender: "",
+    password: '',
+    board_id: null,
+    class_id: null,
+    school_name: '',
+    father_name: '',
+    mother_name: '',
+    cf_turnstile_response: 1245,
+  });
   const [errors, setErrors] = useState<Record<string, string[]> | undefined>(
     undefined
   );
@@ -91,7 +105,7 @@ export default function Register({ switchToLogin }: Props) {
   if (verifyScreen) return <LoginVerify />;
 
   return (
-    <div className="max-h-[550px] pt-15 overflow-scroll">
+    <div className="max-h-[550px] pt-15 overflow-y-scroll">
       <PopupMainHeading
         content={{
           heading: "Create Your Free Account",
